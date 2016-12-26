@@ -1,8 +1,18 @@
 <?php
 
-class Application_Form_Login extends Zend_Form {
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-    public function init() {
+/**
+ * Description of TestForm
+ *
+ * @author Windows 7
+ */
+class TestForm {
+     public function init() {
         $form = new Zend_Form();
         $form->setAction('/user/login')
                 ->setMethod('post');
@@ -26,5 +36,4 @@ class Application_Form_Login extends Zend_Form {
                 // use addElement() as a factory to create 'Login' button:
                 ->addElement('submit', 'login', array('label' => 'Login'));
     }
-
 }
