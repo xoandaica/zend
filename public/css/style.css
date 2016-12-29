@@ -88,3 +88,6 @@ footer .navigation li a:hover {
     color: #3ac341; }
 footer .copyright {
     padding-top: 40px; }
+.container {
+    background-color: black;
+}
