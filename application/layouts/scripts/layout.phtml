@@ -12,29 +12,154 @@
 
     </head>
     <body>
-        <header>
-            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-       <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><img src="images/zend-framework-logo.svg" alt="Zend Framework"></a>
+        <div id="header">
+            <div class="head-top">
+                <div class="refresh-headtop" style="cursor: pointer;">
+                    <img  src="images/refresh.png" alt="Cam kết chất lượng 100%" />
+                    <span class="txt-headtop">ĐẢM BẢO CHẤT LƯỢNG</span>
+                </div>
+                <div class="price-headtop" style="cursor: pointer;">
+                    <img  src="images/refresh.png" alt="Kinh Doanh Kiếm Tiền" />
+                    <span class="txt-headtop">CÙNG KINH DOANH KIẾM TIỀN</span>
+                </div>
+                <div class="ship-headtop" style="cursor: pointer;">
+                    <img  src="images/refresh.png" alt="Miễn phí vận chuyển nội thành" />
+                    <span class="txt-headtop">MIỄN PHÍ VẬN CHUYỂN NỘI THÀNH</span>
+                </div>
+                <div class="hotline-headtop" style="cursor: pointer;">
+                    <img  src="images/refresh.png" alt="Hotline" />
+                    <span class="txt-headtop" style="color: rgb(51, 51, 51);"> 08.3810.4752 - 0933.952.395</span>
+                </div>
+            </div>
+
+            <div class="l-pageWrapper">    			
+                <div class="head-main">
+                    <div class="logo-headmain">
+                        <h1>
+                            <a href="index.html" title="Cung cấp sỉ - áo khoác - váy đầm - túi xách " alt="Cung cấp sỉ - áo khoác - váy đầm - túi xách">
+                                <img  src="images/logo.html" title="Cung cấp sỉ - áo khoác - váy đầm - túi xách" alt="Cung cấp sỉ - áo khoác - váy đầm - túi xách" />
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="search-headmain">
+                        <form action="http://thoitrangchuyensi.com/" method="get" name="frm_search" class="search_form" onsubmit="return onsubmitsearch();">
+                            <fieldset>					    	
+                                <input  title="Tìm kiếm sản phẩm..." onblur="if (this.value == '')
+                                            this.value = this.title;" onfocus="if (this.value == this.title)
+                                                        this.value = '';" autocomplete="off" id="keyword" type="text" value="" name="keyword" class="search-box ac_input" />	
+                                <a name="submit" id="submit" value="" onclick="onsubmitsearch1()" class="sel-search-button">
+                                    <img alt=""  src="images/btn-search.html" style="margin-left:-3px; vertical-align: middle; cursor: pointer;" />
+                                </a>
+                            </fieldset>
+                        </form>
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            function onsubmitsearch1()
+                            {
+                                var keyword = $('#keyword').val();
+                                if (keyword == '')
+                                {
+                                    return false;
+                                }
+                                else {
+                                    window.location.href = nv_siteroot + 'index.php?' + nv_lang_variable + '=' + nv_sitelang + '&' + nv_name_variable + '=shops&' + nv_fc_variable + '=search-result&keyword=' + rawurlencode(keyword);
+                                }
+                                return false;
+                            }
+                            //]]>
+                        </script>
+                    </div>
+                    <!--                    <div class="head-right">    					
+                                            <div class="hright">  
+                                                <div class="social">
+                                                    <span style="position:relative;top:4px;">
+                                                        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+                                                        <g:plusone size="medium"></g:plusone> 
+                                                    </span>
+                                                    <div class="fb-like" data-href="http://thoitrangchuyensi.com/"data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial"></div>
+                                                </div>												
+                                                <div class="cart-member">
+                                                    <div class="block clearfix">
+                                                        <div class="block_cart clearfix" id="cart_shops"></div>
+                                                        <script language="javascript" type="text/javascript">
+                                                //<![CDATA[
+                    //                            $("#cart_shops").load('loadcart.html?language=vi&amp;nv=shops&amp;op=loadcart');
+                                                //]]>
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                </div>
+                <div class="head-nav">
+                    <div class="nav">
+                        <ul class="nav fl">
+                            <li class="home">
+                                <a title="Trang nhất" href="index.html">&nbsp;</a>
+                            </li>
+                            <?php
+                            if ($this->current == 'Product') {
+                                ?>
+                                <li class="current">
+                                    <a title="Sản phẩm" href="shops.html">Sản phẩm</a>
+                                </li>
+                            <?php } else { ?>
+                                <li >
+                                    <a title="Sản phẩm" href="shops.html">Sản phẩm</a>
+                                </li>
+                            <?php } ?>
+
+                            <?php
+                            if ($this->current == 'Introduction') {
+                                ?>
+                                <li class="current">
+                                    <a title="Sản phẩm" href="shops.html">Giới thiệu</a>
+                                </li>
+                            <?php } else { ?>
+                                <li >
+                                    <a title="Sản phẩm" href="shops.html">Giới thiệu</a>
+                                </li>
+                            <?php } ?>    
+                            <li >
+                                <a title="Tin Tức" href="tin-tuc.html">Tin Tức</a>
+                            </li>
+                            <li >
+                                <a title="Hướng Dẫn Thanh Toán" href="huong-dan-thanh-toan.html">Hướng Dẫn Thanh Toán</a>
+                            </li>
+                            <li >
+                                <a title="Thành viên" href="users.html">Thành viên</a>
+                            </li>
+                            <li >
+                                <a title="Hỏi đáp" href="faqs.html">Hỏi đáp</a>
+                            </li>
+                            <li >
+                                <a title="Liên hệ" href="contact.html">Liên hệ</a>
+                            </li>
+                            <li >
+                                <a title="Tuyển dụng" href="tuyen-dung.html">Tuyển dụng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--
+                <div id="submenu_nav">
+                    <div class="eventhl">	
+                        <marquee onmouseout="this.start()" onmouseover="this.stop()" scrolldelay="3" scrollamount="4" style="padding-top:5px;" direction="left" behavior="scroll">
+                            <a style="padding-right: 12px; padding-left: 8px;" title="Bạn đang cần tìm nguồn hàng quần áo thời trang giá sỉ?" href="tin-tuc/ban-dang-can-tim-nguon-hang-quan-ao-thoi-trang-gia-si-202.html">Bạn đang cần tìm nguồn hàng quần áo thời trang giá sỉ? - <span class="small">28/0404/15</span></a>		 	
+                            <a style="padding-right: 12px; padding-left: 8px;" title="Những mẫu áo thời trang luôn được giới trẻ yêu thích nhất hiện nay." href="tin-tuc/nhung-mau-ao-thoi-trang-luon-duoc-gioi-tre-yeu-thich-nhat-hien-nay-201.html">Những mẫu áo thời trang luôn được giới trẻ yêu thích nhất hiện nay. - <span class="small">24/0404/15</span></a>		 	
+                            <a style="padding-right: 12px; padding-left: 8px;" title="Bộ sưu tập thời trang mát mẻ bạn nên tranh thủ lựa chọn cho kỳ nghỉ lễ." href="tin-tuc/bo-suu-tap-thoi-trang-mat-me-ban-nen-tranh-thu-lua-chon-cho-ky-nghi-le-200.html">Bộ sưu tập thời trang mát mẻ bạn nên tranh thủ lựa chọn cho kỳ nghỉ lễ. - <span class="small">23/0404/15</span></a>		 	
+                            <a style="padding-right: 12px; padding-left: 8px;" title="Các mẫu áo khoác nam nữ giá sỉ mới nhất trên thị trường" href="tin-tuc/cac-mau-ao-khoac-nam-nu-gia-si-moi-nhat-tren-thi-truong-199.html">Các mẫu áo khoác nam nữ giá sỉ mới nhất trên thị trường - <span class="small">22/0404/15</span></a>		 	
+                            <a style="padding-right: 12px; padding-left: 8px;" title="Mẫu mã và xu hướng thời trang mới 2015" href="tin-tuc/mau-ma-va-xu-huong-thoi-trang-moi-2015-198.html">Mẫu mã và xu hướng thời trang mới 2015 - <span class="small">21/0404/15</span></a>		 	
+                            <a style="padding-right: 12px; padding-left: 8px;" title="Mua quần áo giá sỉ - Nơi cung cấp quần áo thời trang giá sỉ tại Tp.HCM" href="tin-tuc/mua-quan-ao-gia-si-noi-cung-cap-quan-ao-thoi-trang-gia-si-tai-tp-hcm-197.html">Mua quần áo giá sỉ - Nơi cung cấp quần áo thời trang giá sỉ tại Tp.HCM - <span class="small">15/0404/15</span></a>		 	
+                        </marquee>
+                    </div>
+                </div>   				-->
+            </div>      
         </div>
-        <div id="menuBar">
-            <?php echo $this->layout()->menuBar; ?>
-        </div>
-    </div>
-</div>
-        </header>
     <content>
         <?php echo $this->render('/content.phtml') ?>
-    </content>
+    </content><!--
     <footer>
-        <?php echo $this->render('/footer.phtml') ?>
-    </footer>
-</body>
+//<?php echo $this->render('/footer.phtml') ?>
+</footer>-->
+    </body>
 </html>

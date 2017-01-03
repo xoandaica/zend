@@ -1,93 +1,191 @@
-footer {
-    background: #243c4f;
-    padding: 60px 0; }
-footer p {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.6); }
-footer a{
-    color: #3ac341;
+html,body,div,a{
+    margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent
 }
-footer a:hover{
-    color: #3ac341;
-}
-footer .footer-title {
-    position: relative;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: white; }
-footer .footer-title:after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: #3ac341;
-    margin-top: 8px; }
-footer .right-border {
-    border-right: 1px solid rgba(255, 255, 255, 0.1); }
-footer .left-border {
-    border-left: 1px solid rgba(255, 255, 255, 0.1); }
-@media (max-width: 991px) {
-    footer .copyright {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        margin-top: 40px;
-        text-align: center; }
-    footer .right-border {
-        border-right: none; } }
-@media (max-width: 767px) {
-    footer .right-border {
-        border-right: none; }
-    footer .left-border {
-        border-left: none; }
-    footer .navigation {
-        margin-top: 40px;
-        border-top: 1px solid white; } }
-footer .footer-about {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 40px; }
-footer .contact-info .single {
-    margin: 15px 0; }
-footer .contact-info .single i {
-    display: block;
-    float: left;
-    color: #3ac341;
-    margin-right: 10px;
-    line-height: 22px; }
-footer .contact-info .single p {
+h1 {
+    font-size: 11 px;
+    line-height: 24 px;
     margin: 0;
-    padding: 0;
-    display: block;
-    overflow: hidden; }
-footer .social-icon {
-    margin-top: 40px; }
-footer .social-icon li a {
-    display: block;
-    width: 32px;
-    height: 32px;
-    margin-right: 5px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg); }
-footer .social-icon li a:hover {
-    border-color: #3ac341;
-    color: #3ac341; }
-footer .social-icon li a i {
-    line-height: 32px;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg); }
-footer .navigation li a {
-    color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
+    padding: 0
+}
+
+#header {
+    margin: 0 auto;
+    min-width: 980px;
+    position: relative;
+    height: 143px;
+    background: #fff;
+    box-shadow: 3px;
+    box-shadow: 0 0 5px#DDD;
+    font-size: 12px;
+}
+#header .head-top {
+    height: 30px;
     line-height: 30px;
-    text-decoration: none; }
-footer .navigation li a:hover {
-    color: #3ac341; }
-footer .copyright {
-    padding-top: 40px; }
-.container {
-    background-color: black;
+    background: url(images/bg-header.gif) repeat-x scroll left top transparent;        
+    width: 980px;
+    margin: 0 auto;
+    padding: 0 5px
+}
+#header .txt-headtop {
+    font-weight: bold;
+    padding-left: 5px
+}
+#header .refresh-headtop {
+    float: left;
+    position: relative;
+    width: 240px
+}
+#header .price-headtop {
+    float: left;
+    position: relative;
+    width: 225px
+}
+#header .ship-headtop {
+    float: left;
+    position: relative;
+    width: 250px
+}
+#header .hotline-headtop {
+    float: right;
+    position: relative
+}
+#header .head-top img {
+    vertical-align: middle
+}
+#header .head-main {
+    height: 83px
+}
+#header.logo-headmain {
+    float: left;
+    width: 225px;
+    height: 49px;
+    margin-top: 15px
+}
+#header .head-nav {
+    height: 40px;
+    margin-top: 30px;
+    background: #0d136a
+}
+#header .head-right {
+    padding-top: 20px
+}
+.l-pageWrapper {
+    _text-align: left;
+    margin: 0 auto;
+    position: relative;
+    width: 980px
+}
+#header .head-main {
+    height: 83px
+}
+#header .logo-headmain {
+    float: left;
+    width: 225px;
+    height: 49px;
+    margin-top: 15px
+}
+.search-headmain {
+    float: left;
+    padding-top: 25px;
+    padding-left: 40px;
+    width: 340px
+}
+.search-headmain .search-box {
+    height: 29px;
+    width: 250px;
+    line-height: 25px;
+    vertical-align: middle;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-right: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    padding: 4px;
+    transition: border .2s linear 0s,box-shadow .2s linear 0s;
+    
+
+}
+div .nav {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    position: relative;
+    z-index: 9999
+}
+ul.nav li.home {
+    width: 56px
+}
+ul.nav li {
+    display: inline;
+    float: left;
+    margin: 0 auto;
+    line-height: 40px;
+    text-transform: uppercase;
+    height: 45px
+}
+ul.nav li a {
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    color: #FFF;
+    padding: 0 10px;
+    background: url(../../themes/shoppro/images/menu_line.png) no-repeat left center;
+    font-family: 'Verdana'
+}
+ul.nav li a:hover,
+ul.nav li.current a:hover,
+ul.nav li.current a {
+    background: #fa4904;
+    text-decoration: none;
+    padding: 0 10px
+}
+ul.nav li.home a {
+    background: url(../../themes/shoppro/images/menu_home.html) no-repeat center center
+}
+ul.nav li div.subnav {
+    position: absolute;
+    background-color: #FFF;
+    border: 1px solid #D6D3CC;
+    box-shadow: 0 1px 3px #D6D3CC;
+    height: auto;
+    top: 102%;
+    margin: 0 auto;
+    width: 400px;
+    z-index: 999;
+    visibility: hidden
+}
+ul.nav li div.subnav .subcat {
+    margin: 10px;
+    border-right: 1px solid #DDD;
+    width: 180px
+}
+ul.nav li div.subnav .subcat a {
+    color: #333;
+    padding: 2px 10px 0 30px;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: none;
+    background: url(../../themes/shoppro/images/cm_icon.html) no-repeat scroll 10px -720px transparent
+}
+ul.nav li div.subnav .subcat a:first-letter {
+    color: #F99D1C;
+    font-size: 14px
+}
+ul.nav li div.subnav .subcat a:hover,
+ul.nav li div.subnav .subcat a.current {
+    color: #060;
+    background: url(../../themes/shoppro/images/cm_icon.html) no-repeat scroll 10px -848px transparent
+}
+ul.nav ul ul {
+    top: 0
+}
+ul.nav li:hover>div.subnav {
+    visibility: visible;
+    position: absolute;
+    top: 102%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+ul.nav li:hover > div.subnav a:hover {
+    border: none
 }
