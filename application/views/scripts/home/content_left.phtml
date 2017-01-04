@@ -1,0 +1,47 @@
+<ul class="menu_left">
+    <?php
+    foreach ($this->categories as $category) {
+        if ($category->parent_category == null) {
+            echo "<li>";
+            echo '<a class="cate" title="' . $category->name . '" href="' . $category->name . '"><h2>' . $category->name . '</h2></a>';
+            echo "<ul>";
+            foreach ($this->categoriesSub as $subCategory) {
+                if ($subCategory->parent_category == $category->id) {
+                    echo '<li class="sub">';
+                    echo '<a class="subcate" title="' . $subCategory->name . '" href="' . $subCategory->name . '"><h2>' . $subCategory->name . '</h2></a>';
+                    echo "</li>";
+                }
+            }
+            echo "</ul>";
+            echo "</li>";
+        }
+    }
+    ?>
+
+    <!--    <li>
+            <a class="cate" title="Thời Trang Nữ" href="thoi-trang-nu-gia-si.html"><h2>Thời Trang Nữ</h2></a>
+            <ul>
+                <li class="sub">
+                    <a class="subcate" title="Áo Khoác Nữ" href="ao-khoac-nu-gia-si.html"><h3>Áo Khoác Nữ</h3></a>
+                </li>
+                <li class="sub">
+                    <a class="subcate" title="Váy Đầm" href="vay-dam-gia-si.html"><h3>Váy Đầm</h3></a>
+                </li>
+                <li class="sub">
+                    <a class="subcate" title="Áo Sơ Mi Nữ" href="ao-so-mi-nu-gia-si.html"><h3>Áo Sơ Mi Nữ</h3></a>
+                </li>
+                <li class="sub">
+                    <a class="subcate" title="Đồ Bộ Nữ" href="do-bo-nu-gia-si.html"><h3>Đồ Bộ Nữ</h3></a>
+                </li>
+                <li class="sub">
+                    <a class="subcate" title="Áo Thun Nữ" href="ao-thun-nu-gia-si.html"><h3>Áo Thun Nữ</h3></a>
+                </li>
+                <li class="sub">
+                    <a class="subcate" title="Quần Nữ + Áo len" href="quan-jean-nu-gia-si.html"><h3>Quần Nữ + Áo len</h3></a>
+                </li>
+                <li class="sub">
+                    <a class="subcate" title="Đồ Lót Nữ" href="do-lot-nu-gia-si.html"><h3>Đồ Lót Nữ</h3></a>
+                </li>
+            </ul>
+        </li>-->
+</ul>

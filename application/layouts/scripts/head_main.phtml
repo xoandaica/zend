@@ -1,0 +1,58 @@
+<div class="head-main">
+    <div class="logo-headmain">
+        <h1>
+            <a href="index.html" title="Cung cấp sỉ - áo khoác - váy đầm - túi xách " alt="Cung cấp sỉ - áo khoác - váy đầm - túi xách">
+                <img  <?php echo 'src="'.$this->baseUrl().'/images/logo.html"'?> title="Cung cấp sỉ - áo khoác - váy đầm - túi xách" alt="Cung cấp sỉ - áo khoác - váy đầm - túi xách" />
+            </a>
+        </h1>
+    </div>
+    <div class="search-headmain">
+        <form action="http://thoitrangchuyensi.com/" method="get" name="frm_search" class="search_form" onsubmit="return onsubmitsearch();">
+            <fieldset>					    	
+                <input  title="Tìm kiếm sản phẩm..." onblur="if (this.value == '')
+                            this.value = this.title;" onfocus="if (this.value == this.title)
+                                        this.value = '';" autocomplete="off" id="keyword" type="text" value="" name="keyword" class="search-box ac_input" />	
+                <a name="submit" id="submit" value="" onclick="onsubmitsearch1()" class="sel-search-button">
+                    <img alt=""  <?php echo 'src="'.$this->baseUrl().'/images/btn-search.html"'?> style="margin-left:-3px; vertical-align: middle; cursor: pointer;" />
+                </a>
+            </fieldset>
+        </form>
+        <script type="text/javascript">
+            //<![CDATA[
+            function onsubmitsearch1()
+            {
+                var keyword = $('#keyword').val();
+                if (keyword == '')
+                {
+                    return false;
+                }
+                else {
+                    window.location.href = nv_siteroot + 'index.php?' + nv_lang_variable + '=' + nv_sitelang + '&' + nv_name_variable + '=shops&' + nv_fc_variable + '=search-result&keyword=' + rawurlencode(keyword);
+                }
+                return false;
+            }
+            //]]>
+        </script>
+    </div>
+    <!--                    <div class="head-right">    					
+                            <div class="hright">  
+                                <div class="social">
+                                    <span style="position:relative;top:4px;">
+                                        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+                                        <g:plusone size="medium"></g:plusone> 
+                                    </span>
+                                    <div class="fb-like" data-href="http://thoitrangchuyensi.com/"data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-font="arial"></div>
+                                </div>												
+                                <div class="cart-member">
+                                    <div class="block clearfix">
+                                        <div class="block_cart clearfix" id="cart_shops"></div>
+                                        <script language="javascript" type="text/javascript">
+                                //<![CDATA[
+    //                            $("#cart_shops").load('loadcart.html?language=vi&amp;nv=shops&amp;op=loadcart');
+                                //]]>
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+</div>

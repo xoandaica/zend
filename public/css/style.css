@@ -1,4 +1,5 @@
-html,body,div,a{
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt,
+var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend{
     margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent
 }
 h1 {
@@ -7,7 +8,14 @@ h1 {
     margin: 0;
     padding: 0
 }
-
+h2, .h2 {
+    line - height: 1.8 rem
+}
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
 #header {
     margin: 0 auto;
     min-width: 980px;
@@ -18,6 +26,10 @@ h1 {
     box-shadow: 0 0 5px#DDD;
     font-size: 12px;
 }
+#content {
+    margin: 0 auto;position: relative;width: 980px
+}
+
 #header .head-top {
     height: 30px;
     line-height: 30px;
@@ -75,6 +87,13 @@ h1 {
     position: relative;
     width: 980px
 }
+.l-sidebar {
+    _margin-left: -3px;
+    float: left;
+    margin-left: 0;
+    margin-right: 10px;
+    width: 210px
+}
 #header .head-main {
     height: 83px
 }
@@ -101,7 +120,7 @@ h1 {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     padding: 4px;
     transition: border .2s linear 0s,box-shadow .2s linear 0s;
-    
+
 
 }
 div .nav {
@@ -129,7 +148,7 @@ ul.nav li a {
     text-decoration: none;
     color: #FFF;
     padding: 0 10px;
-    background: url(../../themes/shoppro/images/menu_line.png) no-repeat left center;
+    background: url(images/bg-header.gif) no-repeat left center;
     font-family: 'Verdana'
 }
 ul.nav li a:hover,
@@ -188,4 +207,88 @@ ul.nav li:hover>div.subnav {
 }
 ul.nav li:hover > div.subnav a:hover {
     border: none
+}
+ul.menu_left {
+    background: none repeat scroll 0 0 #f8f8f8;
+    font-family: Tahoma;
+    list-style: none outside none;
+    position: relative;
+    width: 230px;
+    z-index: 9000
+}
+ul.menu_left h2 {
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 3px
+}
+ul.menu_left h3 {
+    color: #fff;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 3px
+}
+ul.menu_left li ul li {
+    border-bottom: 1px solid #e9e9e9;
+    border-top: 1px solid #fcfcfc !important;
+    color: #555;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 230px;
+    z-index: 9000
+}
+ul.menu_left li ul li:hover {
+    background-color: #fff !important;
+    border-color: #f1f1f1 !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    padding: 0 !important;
+    width: 228px !important;
+    z-index: 9000
+}
+ul.menu_left li a.cate {
+    background-color: #0d136a;
+    display: block;
+    height: 36px;
+    padding: 12px 0 12px 40px;
+    text-align: left;
+    text-decoration: none
+}
+
+ul.menu_left li:hover a.cate {
+    padding: 12px 0 12px 40px
+}
+ul.menu_left li ul li.sub {
+    background: url(images/bg-header.gif) no-repeat scroll 10px 16px transparent
+}
+ul.menu_left li ul li.sub:hover {
+    background: url(images/bg-header.gif) no-repeat scroll 10px 16px transparent
+}
+ul.menu_left li ul li a.subcate {
+    color: #555;
+    display: block;
+    height: 36px;
+    padding: 12px 0 10px 40px;
+    text-decoration: none;
+    width: 190px
+}
+ul.menu_left li ul li a.subcate h2 {
+    color: #555;
+    float: left;
+    font-size: 12px;
+    font-weight: normal
+}
+ul.menu_left li ul li a.subcate h3 {
+    color: #555;
+    float: left;
+    font-size: 12px;
+    font-weight: normal
+}
+ul.menu_left li ul li:hover a.subcate {
+    padding: 12px 0 10px 40px
 }

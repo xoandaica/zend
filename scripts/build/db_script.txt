@@ -1,0 +1,11 @@
+insert into categories values(4,"Áo khoác nam",1);
+insert into categories values(5,"Quần đùi nam",1);
+insert into categories values(6,"Quần sịp nam",1);
+insert into categories values(7,"Áo khoác nữ",2);
+insert into categories values(8,"Áo phông nữ",2);
+insert into categories values(9,"Quần đùi nữ",2);
+insert into categories values(10,"Quần sà lỏn",2);
+insert into categories values(11,"Quần đùi con nít",3);
+insert into categories values(12,"Quần dài con nít",3);
+insert into categories values(13,"Quần Ngắn tay",3);
+insert into categories values(14,"Quần ba lỗ",3);
