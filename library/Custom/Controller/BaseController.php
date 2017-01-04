@@ -1,12 +1,11 @@
 <?php
 
-class HomeController extends Custom_Controller_BaseController {
+require_once 'Zend/Controller/Action.php';
 
-    
-    public function init() {
-//        $response = $this->getResponse();
-//        $response->insert('menuBar', $this->view->render('menuBar.phtml'));
-        parent::setCurrentMenu("Product");
+class Custom_Controller_BaseController extends Zend_Controller_Action {
+
+    protected function setCurrentMenu($menu) {
+        $this->view->current = $menu;
     }
 
     public function indexAction() {
