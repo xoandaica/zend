@@ -3,18 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/zend_demo/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/IndexController.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/head_menu.phtml</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/HomeController.php</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Categories.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/library/Zend/Controller/Action.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/forms/Login.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/library/Zend/Controller/BaseController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/public/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Products.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/scripts/build/db_script.txt</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/Products.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/header.phtml</file>
             <file>file:/C:/xampp/htdocs/zend_demo/library/Zend/Db/Table/Abstract.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/views/scripts/home/content_left.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/views/scripts/product/index.phtml</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/views/scripts/home/index.phtml</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/configs/application.ini</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/HomeController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/views/scripts/home/content_left.phtml</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/layout.phtml</file>
         </group>
     </open-files>
