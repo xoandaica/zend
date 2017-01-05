@@ -6,7 +6,6 @@ class HomeController extends Zend_Controller_BaseController {
     public function init() {
 //        $response = $this->getResponse();
 //        $this->view->current = "Product";
-        setCurrentMenu("Product");
 //        $response->insert('menuBar', $this->view->render('menuBar.phtml'));
     }
 
