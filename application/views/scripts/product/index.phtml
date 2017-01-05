@@ -1,0 +1,59 @@
+<div id="productsCatalog">   		
+    <div id="products">
+        <?php
+        foreach ($this->listProducts as $tmp) {
+            ?>
+            <div class="box clearfix productTeaserBox">
+                <div class="header">
+                    <div class="ui-borderBottom clearfix">
+                        <h1 class="lfloat">
+                            <?php
+                            $categoryTmp = $tmp->getCategory();
+                            echo '<a href = "thoi-trang-nu-gia-si.html" title = "Thời Trang Nữ">' . $categoryTmp['name'] . '</a>'
+                            ?>
+                        </h1>
+                        <h3 class="rfloat">
+                            <?php
+                            echo '<a href = "thoi-trang-nu-gia-si.html" title = "Thời Trang Nữ">Xem thêm sản phẩm về' . $categoryTmp['name'] . '</a>'
+                            ?>
+                        </h3>
+                    </div>
+                </div>
+                <div class="clearfix">    
+                    <?php
+                    foreach ($tmp->getProducts() as $listProduct) {
+                        ?>
+                        <div class="items" style="width:25%">
+                            <div class="items_content">
+                                <div class="content_top">  
+                                    <div class="product_img">
+                                        <a href="thoi-trang-nu-gia-si/dam-suong-co-tru-2793-4001.html" title="Đầm Suông Cổ Trụ 2793" >
+                                            <img  src="http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg" width="165" height="180" alt="Đầm Suông Cổ Trụ 2793" border="0" />
+<!--                                            <div class="tip">
+                                                <img  class="tooltip_img margin-right_10 fl" <?php echo 'src="' . $listProduct['images'] . '"' ?>  alt="Đầm Suông Cổ Trụ 2793" />
+                                            </div>-->
+                                        </a>
+                                    </div>
+                                    <span class="content_title">                       
+                                        <a href="thoi-trang-nu-gia-si/dam-suong-co-tru-2793-4001.html" title="Đầm Suông Cổ Trụ 2793"><?php echo $listProduct['name'] ?> </a>
+                                    </span>
+                                    <p class="content_price">													
+                                        <span class="content_hits fl"><?php echo $listProduct['price'] ?> </span> 													
+                                        <span class="money fr"><?php echo $listProduct['price'] ?> </span>                       
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div style="clear:both"></div>                
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+
+    </div>
+</div>

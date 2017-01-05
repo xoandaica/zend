@@ -1,12 +1,11 @@
 <?php
 
-class IndexController extends Zend_Controller_Action {
+require_once 'Zend/Controller/Action.php';
 
-    public function init() {
-//        $response = $this->getResponse();
-        $this->view->current = "Product";
-//        setCurrentMenu("Product");
-//        $response->insert('menuBar', $this->view->render('menuBar.phtml'));
+class Custom_Controller_BaseController extends Zend_Controller_Action {
+
+    protected function setCurrentMenu($menu) {
+        $this->view->current = $menu;
     }
 
     public function indexAction() {

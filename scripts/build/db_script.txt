@@ -9,3 +9,12 @@ insert into categories values(11,"Quần đùi con nít",3);
 insert into categories values(12,"Quần dài con nít",3);
 insert into categories values(13,"Quần Ngắn tay",3);
 insert into categories values(14,"Quần ba lỗ",3);
+
+insert into products values(1,"Quần đùi", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","100.000");
+insert into products values(2,"Quần đùi1", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","110.000");
+insert into products values(3,"Quần đùi2", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","120.000");
+insert into products values(4,"Quần đùi3", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","130.000");
+insert into products values(5,"Quần đùi4", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","140.000");
+insert into products values(6,"Quần đùi5", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","150.000");
+insert into products values(7,"Quần đùi6", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","160.000");
+insert into products values(8,"Quần đùi7", "http://thoitrangchuyensi.com/uploads/shops/thumb/dam-suong-co-tru-2793-1.jpg","170.000");

@@ -30,6 +30,7 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Categories"/>
+          <dbTableFile dbTableName="Products"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
