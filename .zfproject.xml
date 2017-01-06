@@ -18,6 +18,9 @@
         <controllerFile controllerName="Menu">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Product">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Login"/>
@@ -30,6 +33,7 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Categories"/>
+          <dbTableFile dbTableName="Products"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -49,6 +53,9 @@
             <viewScriptFile forActionName="ahihi"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Menu">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

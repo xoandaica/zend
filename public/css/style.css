@@ -87,6 +87,13 @@ li {
     position: relative;
     width: 980px
 }
+.l-main {
+    _margin-right: -3px;
+    float: left;
+    padding-left: 20px;
+    margin-top: 5px;
+    width: 740px
+}
 .l-sidebar {
     _margin-left: -3px;
     float: left;
@@ -291,4 +298,231 @@ ul.menu_left li ul li a.subcate h3 {
 }
 ul.menu_left li ul li:hover a.subcate {
     padding: 12px 0 10px 40px
+}
+#products {
+    position:relative
+}
+#products .items {
+    display:inline-block;
+    float:left;
+    margin-bottom:5px;
+    position:relative
+}
+#products .items .items_content {
+    margin:5px;
+    text-align:left
+}
+#products .items .items_content .content_top {
+    height:270px;
+    text-align:center;
+    padding-right:2px;
+    border:1px solid #DEDEDE;
+    border-radius:7px;
+    box-shadow:0 0 4px #DEDEDE
+}
+#products .items .items_content .content_top img {
+    margin:5px;
+    overflow:hidden;
+    height:180px;
+    width:165px
+}
+#products .items .items_content .content_price {
+    height:20px;
+    margin-left:5px
+}
+#products .items .items_content .content_title {
+    margin-left:5px;
+    color:#232323;
+    display:block;
+    font-size:13px;
+    line-height:20px
+}
+.product_center ul.pagination li,
+.user-info .box .field .name img,
+.lfloat,
+.fl {
+    float: left
+}
+.productTeaserBox {
+    margin-bottom:10px
+}
+.productTeaserBox .header {
+    padding-bottom:5px;
+    width:99%;
+    position:relative;
+    margin:0 auto
+}
+.productTeaserBox .header .lfloat,
+.productTeaserBox .header .lfloat a {
+    font-size:16px !important
+}
+.productTeaserBox .header .ui-borderBottom {
+    border-bottom:2px solid #333 !important
+}
+.productTeaserBox .header h1.lfloat {
+    line-height:20px;
+    padding:13px 0 0;
+    text-transform:uppercase
+}
+.productTeaserBox .header h1.lfloat a {
+    color:#bf0000;
+    border-bottom:2px solid #bf0000;
+    padding-bottom:2px;
+    font-size:14px
+}
+.productTeaserBox .header h1.rfloat {
+    background: url(images/readmore.gif) no-repeat scroll 0 15px;
+    float:right;
+    font-style:normal;
+    line-height:18px;
+    padding:10px 0 7px 15px
+}
+.productTeaserBox .header h3.lfloat {
+    line-height:20px;
+    padding:13px 0 0;
+    text-transform:uppercase
+}
+.productTeaserBox .header h3.lfloat a {
+    color:#bf0000;
+    border-bottom:2px solid #bf0000;
+    padding-bottom:2px;
+    font-size:14px
+}
+.productTeaserBox .header h3.rfloat {
+    background: url(images/readmore.gif) no-repeat scroll 0 15px;
+    float:right;
+    font-style:normal;
+    line-height:18px;
+    padding:10px 0 7px 15px;
+    font-size:14px
+}
+.tooltip .tip, #tabs-products .panes,#tabs-productss .panes{display:none}
+.tip {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #000;
+    height:auto;
+    padding:5px;
+    position:absolute;
+    top:500px;
+    width:auto;
+    z-index:1000
+}
+.tip .tooltip_img{
+    background:#F4F4F4;
+    padding:2px;
+    width:auto;
+    box-shadow:0 0 10px #999
+}
+.detail_top_content {
+    clear: both
+}
+#detail .prd_rate,
+.product_center p {
+    padding: 0
+}
+#detail .prd_rate div.cm_c,
+.fr {
+    float: right
+}
+#detail .others,
+.content-box {
+    padding: 10px
+}
+#detail .others .date,
+.prd-attributeTitle,
+.txtLight {
+    color: #999
+}
+#detail {
+    background: #fff;
+    padding: 10px
+}
+#detail .info_product {
+    margin-left: 5px;
+    width: 53%
+}
+#detail .date_up {
+    display: block;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 10px
+}
+#detail .info_product p {
+    margin: 0;
+    padding: 2px
+}
+#detail h2 {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px
+}
+#detail .detail_com {
+    margin-bottom: 5px
+}
+#detail .zoom_img {
+    background: url(../../themes/default/images/shops/zoom-img.html) no-repeat left center;
+    display: inline-block;
+    line-height: 26px;
+    padding-left: 20px
+}
+#detail .prd_rate form.comment {
+    background: #f7f7f7;
+    border: 1px solid #dfdfdf;
+    margin-bottom: 10px;
+    padding: 10px
+}
+#detail .prd_rate form.comment span {
+    display: block;
+    margin-bottom: 10px
+}
+#detail .prd_rate form.comment textarea {
+    border: 1px solid #dfdfdf;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    height: 80px;
+    margin-bottom: 10px;
+    padding: 4px;
+    width: 658px
+}
+#detail .prd_rate form.comment img {
+    margin-left: 10px;
+    vertical-align: middle
+}
+#detail .prd_rate div.cm_rows {
+    border-bottom: 1px dashed #d7e2e6;
+    margin: 0 0 10px;
+    padding: 0 0 10px
+}
+#detail .prd_rate div.avata {
+    float: left;
+    text-align: center;
+    width: 54px
+}
+#detail .prd_rate div.avata img {
+    border: 1px solid #d7e2e6;
+    padding: 1px
+}
+#detail .prd_rate div.cm_c {
+    float: right
+}
+#detail .others {
+    padding: 10px
+}
+#detail .others ul li {
+    background: url(http://thoitrangchuyensi.com/themes/default/images/shops/square.jpg) no-repeat 0 5px;
+    padding-left: 8px
+}
+#detail .others .date {
+    color: #999
+}
+#detail .others h1 {
+    border-bottom: #CCC 1px solid;
+    margin-bottom: 5px
+}
+#detail .div_rate a {
+    background: url(../../themes/default/images/shops/star.png) no-repeat right center;
+    margin-right: 5px;
+    padding-right: 18px
 }

@@ -2,18 +2,28 @@
 
 class HomeController extends Custom_Controller_BaseController {
 
-    
     public function init() {
-//        $response = $this->getResponse();
-//        $response->insert('menuBar', $this->view->render('menuBar.phtml'));
-        parent::setCurrentMenu("Product");
+        $this->initContent("Product");
     }
 
     public function indexAction() {
-        $categories = new Application_Model_DbTable_Categories();
-        $listCategories = $categories->fetchAll();
-        $this->view->categories = $listCategories;
-        $this->view->categoriesSub = clone $listCategories;
+        // show list menu
+        $this->showMenu();
+
+        // show list product
+        $listProducts = [];
+        $allRootCategory = $this->categoriesModel->getAllRootCategories();
+        foreach ($allRootCategory as $tmp) {
+            $arrayProduct = [];
+            $product = $this->productsModel->getListProductByRootCategory($tmp['id']);
+            array_push($arrayProduct, $product);
+            $productsDetails = new Application_Model_Products();
+            $productsDetails->setCategory($tmp);
+            $productsDetails->setListProducts($product);
+            array_push($listProducts, $productsDetails);
+        }
+
+        $this->view->listProducts = $listProducts;
     }
 
 }
