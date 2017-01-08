@@ -1,35 +1,37 @@
 <div class="l-sidebar">
     <?php echo $this->render('/home/content_left.phtml') ?>
+
 </div>
 <div class="l-main">
+    <?php $json = json_decode($this->productDetail->detail, true); ?>
     <div id="detail">     
         <div class="clearfix">
             <div class="detail_top_content">
                 <span style="float:left; text-align:center">
-                    <a href="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-1.jpg" title="Áo Hoodie Nam 1296" class="jqzoom" rel='gal1'>
-                        <img alt=""  src="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-1.jpg" alt=Áo Hoodie Nam 1296" style="border:1px solid #eee; padding:2px; width: 300px;" />
+                    <a <?php echo 'href="' . $this->productDetail->images . '"' ?> title="Áo Hoodie Nam 1296" class="jqzoom" rel='gal1'>
+                        <img alt=""  <?php echo 'src="' . $this->productDetail->images . '"' ?> alt=Áo Hoodie Nam 1296" style="border:1px solid #eee; padding:2px; width: 300px;" />
                     </a>            
                 </span>
                 <div class="info_product fr">   
-                    <h2>Áo Hoodie Nam 1296</h2>
+                    <h2><?php echo $json['name'] ?></h2>
                     <div class="rate_share clearfix">   	
-                        <span class="date_up fl">Đăng ngày 11-03-2016 - 798 Lượt xem</span>   	
+                        <span class="date_up fl">Đăng ngày <?php echo $this->productDetail->create_date ?> - 798 Lượt xem</span>   	
                         <div class="share fr">					
                             <a onClick="share_facebook();" href="javascript:;" title="Share on Facebook">
-                                <img  border="0" alt="Share on Facebook" src="../themes/default/images/shops/facebook.png" />
+                                <img  border="0" alt="Share on Facebook" <?php echo 'src="' . $this->baseUrl() . '/images/facebook.png"' ?> />
                             </a>
                             <a onClick="share_twitter();" href="javascript:;" title="Share on Twitter">
-                                <img  border="0" alt="Share on Twitter" src="../themes/default/images/shops/twitter.html" />
+                                <img  border="0" alt="Share on Twitter"   <?php echo 'src="' . $this->baseUrl() . '/images/twitter.html"' ?> />
                             </a>
                             <a onClick="share_google();" href="javascript:;" title="Share on Google">
-                                <img  border="0" alt="Share on Google" src="../themes/default/images/shops/google.png" />
+                                <img  border="0" alt="Share on Google"   <?php echo 'src="' . $this->baseUrl() . '/images/google.png"' ?>/>
                             </a>										
                         </div>
                     </div>       		       		
                     <ul>         
-                        <li class="list_detail">Mã sản phẩm: <span class="code">1296</span></li>                  
+                        <li class="list_detail">Mã sản phẩm: <span class="code"><?php echo $json['ID'] ?></span></li>                  
                         <li class="list_detail">
-                            <span>Xuất xứ: Việt Nam</span>
+                            <span>Xuất xứ: <?php echo $json['origin'] ?></span>
                         </li>
                     </ul>
                     <div class="conhang"><span>Còn hàng  Call ngay: 0933 952 395</span></div> 
@@ -38,8 +40,10 @@
                     </div>
                     <div class="clear">&nbsp;</div>
                     <p style="color: #666666; line-height: 20px; margin: 0 0 10px 0;">
-                    <div> + <em>Áo Hoodie Nam 1296</em></div><div> + Chất liệu : &nbsp;nỉ</div><div> + Màu Sắc : vàng, đỏ, xám và xanh lá</div><div> + Kích thước : freesize Phù hợp cho bạn &lt; 70kg (tùy chiều cao)</div>
-                    </p>	
+                    <div> + <em><?php echo $json['name']; ?></em></div>
+                    <div> + Chất liệu : &nbsp;<?php echo $json['origin']; ?></div>
+                    <div> + Màu Sắc : <?php echo $json['color']; ?></div>
+                    <div> + Kích thước : <?php echo $json['size']; ?></div>
                     <div class="price_order">     
                         <div class="pro_bo_stock_pra" align="center">
                             <b>CHỌN MUA HÀNG</b>
@@ -47,7 +51,7 @@
                         <div class="detail_price">
                             <p>
                                 <br>
-                                <span class="">65.000 VND</span>
+                                <span class=""><?php echo $this->productDetail->price; ?> VND</span>
                             </p>
                         </div>           
                         <div class="detail_order">
@@ -69,17 +73,29 @@
                 </div>    
                 <div class="Pages">    
                     <div class="Page">
-                        <div> +&nbsp;<em>Áo Hoodie Nam 1296</em></div><div> + Chất liệu : &nbsp;nỉ</div><div> + Màu Sắc : vàng, đỏ, xám và xanh lá</div><div> + Kích thước : freesize Phù hợp cho bạn &lt; 70kg (tùy chiều cao)<br /> <br /> <img  alt="Áo Hoodie Nam 1296,áo khoác nam giá sỉ,áo khoác giá sỉ,áo khoác kaki giá sỉ,áo khoác giá rẻ,bỏ sỉ áo khoác,chuyên sỉ áo khoác,cung cấp áo khoác,thời trang áo khoác,thời trang giá sỉ,giá sỉ thời trang,giá sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác đẹp 2015,áo khoác da giá sỉ,áo khoác nam da giá sỉ,chuyên sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác nam nỉ giá sỉ,nguồn áo khoác nam giá sỉ,áo khoác da giá sỉ,cung cấp áo khoác da,bỏ sỉ áo khoác da,áo khoác da đẹp 2015,áo vest giá sỉ,khoác vest gia si,áo khoác da giá sỉ,áo khoác nỉ giá sỉ,áo khoác cặp giá sỉ, cung cấp sỉ áo khoác cặp,bỏ sỉ áo khoác,áo khoác da giá sỉ,áo khoác da cặp giá sỉ,cung cấp sỉ áo da,áo da nam giá sỉ,áo da giá rẻ,áo khoác nam 2 mặt giá sỉ,áo khoác nam lining giá sỉ, quần áo thời trang, áo hoodie giá sỉ" src="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-2.jpg" style="width: 720px; height: 720px;" /><br /> <br /> <img  alt="Áo Hoodie Nam 1296,áo khoác nam giá sỉ,áo khoác giá sỉ,áo khoác kaki giá sỉ,áo khoác giá rẻ,bỏ sỉ áo khoác,chuyên sỉ áo khoác,cung cấp áo khoác,thời trang áo khoác,thời trang giá sỉ,giá sỉ thời trang,giá sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác đẹp 2015,áo khoác da giá sỉ,áo khoác nam da giá sỉ,chuyên sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác nam nỉ giá sỉ,nguồn áo khoác nam giá sỉ,áo khoác da giá sỉ,cung cấp áo khoác da,bỏ sỉ áo khoác da,áo khoác da đẹp 2015,áo vest giá sỉ,khoác vest gia si,áo khoác da giá sỉ,áo khoác nỉ giá sỉ,áo khoác cặp giá sỉ, cung cấp sỉ áo khoác cặp,bỏ sỉ áo khoác,áo khoác da giá sỉ,áo khoác da cặp giá sỉ,cung cấp sỉ áo da,áo da nam giá sỉ,áo da giá rẻ,áo khoác nam 2 mặt giá sỉ,áo khoác nam lining giá sỉ, quần áo thời trang, áo hoodie giá sỉ" src="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-3.jpg" style="width: 720px; height: 720px;" /><br /> <br /> <img  alt="Áo Hoodie Nam 1296,áo khoác nam giá sỉ,áo khoác giá sỉ,áo khoác kaki giá sỉ,áo khoác giá rẻ,bỏ sỉ áo khoác,chuyên sỉ áo khoác,cung cấp áo khoác,thời trang áo khoác,thời trang giá sỉ,giá sỉ thời trang,giá sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác đẹp 2015,áo khoác da giá sỉ,áo khoác nam da giá sỉ,chuyên sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác nam nỉ giá sỉ,nguồn áo khoác nam giá sỉ,áo khoác da giá sỉ,cung cấp áo khoác da,bỏ sỉ áo khoác da,áo khoác da đẹp 2015,áo vest giá sỉ,khoác vest gia si,áo khoác da giá sỉ,áo khoác nỉ giá sỉ,áo khoác cặp giá sỉ, cung cấp sỉ áo khoác cặp,bỏ sỉ áo khoác,áo khoác da giá sỉ,áo khoác da cặp giá sỉ,cung cấp sỉ áo da,áo da nam giá sỉ,áo da giá rẻ,áo khoác nam 2 mặt giá sỉ,áo khoác nam lining giá sỉ, quần áo thời trang, áo hoodie giá sỉ" src="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-4.jpg" style="width: 720px; height: 720px;" /><br /> <br /> <img  alt="Áo Hoodie Nam 1296,áo khoác nam giá sỉ,áo khoác giá sỉ,áo khoác kaki giá sỉ,áo khoác giá rẻ,bỏ sỉ áo khoác,chuyên sỉ áo khoác,cung cấp áo khoác,thời trang áo khoác,thời trang giá sỉ,giá sỉ thời trang,giá sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác đẹp 2015,áo khoác da giá sỉ,áo khoác nam da giá sỉ,chuyên sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác nam nỉ giá sỉ,nguồn áo khoác nam giá sỉ,áo khoác da giá sỉ,cung cấp áo khoác da,bỏ sỉ áo khoác da,áo khoác da đẹp 2015,áo vest giá sỉ,khoác vest gia si,áo khoác da giá sỉ,áo khoác nỉ giá sỉ,áo khoác cặp giá sỉ, cung cấp sỉ áo khoác cặp,bỏ sỉ áo khoác,áo khoác da giá sỉ,áo khoác da cặp giá sỉ,cung cấp sỉ áo da,áo da nam giá sỉ,áo da giá rẻ,áo khoác nam 2 mặt giá sỉ,áo khoác nam lining giá sỉ, quần áo thời trang, áo hoodie giá sỉ" src="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-5.jpg" style="width: 720px; height: 720px;" /><br /> <br /> <img  alt="Áo Hoodie Nam 1296,áo khoác nam giá sỉ,áo khoác giá sỉ,áo khoác kaki giá sỉ,áo khoác giá rẻ,bỏ sỉ áo khoác,chuyên sỉ áo khoác,cung cấp áo khoác,thời trang áo khoác,thời trang giá sỉ,giá sỉ thời trang,giá sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác đẹp 2015,áo khoác da giá sỉ,áo khoác nam da giá sỉ,chuyên sỉ áo khoác,áo khoác nỉ giá sỉ,áo khoác nam nỉ giá sỉ,nguồn áo khoác nam giá sỉ,áo khoác da giá sỉ,cung cấp áo khoác da,bỏ sỉ áo khoác da,áo khoác da đẹp 2015,áo vest giá sỉ,khoác vest gia si,áo khoác da giá sỉ,áo khoác nỉ giá sỉ,áo khoác cặp giá sỉ, cung cấp sỉ áo khoác cặp,bỏ sỉ áo khoác,áo khoác da giá sỉ,áo khoác da cặp giá sỉ,cung cấp sỉ áo da,áo da nam giá sỉ,áo da giá rẻ,áo khoác nam 2 mặt giá sỉ,áo khoác nam lining giá sỉ, quần áo thời trang, áo hoodie giá sỉ" src="http://thoitrangchuyensi.com/uploads/shops/2016_03/1296-6.jpg" style="width: 720px; height: 720px;" /></div>
-                    </div>      
-                    <div class="fb-comments" data-href="http://thoitrangchuyensi.com" data-width="670"></div>
-                    <div class="Page">
-                    </div>	
-                    <div class="Page">
-                    </div>	    	 		
-                </div>
+                        <div> + <em><?php echo $json['name']; ?></em></div>
+                        <div> + Chất liệu : &nbsp;<?php echo $json['origin']; ?></div>
+                        <div> + Màu Sắc : <?php echo $json['color']; ?></div>
+                        <div> + Kích thước : <?php echo $json['size']; ?></div>
+                        <br /> <br /> 
+
+                        <?php
+                        $arrayImage = explode(",", $json['image']);
+                        foreach ($arrayImage as $img) {
+                            echo '<img  alt="" src="' . $img . '" style="width: 720px; height: 720px;" /><br /> <br />';
+                        }
+                        ?>
+                    </div>
+                </div>      
+                <div class="fb-comments" data-href="http://thoitrangchuyensi.com" data-width="670"></div>
+                <div class="Page">
+                </div>	
+                <div class="Page">
+                </div>	    	 		
             </div>
-        </div>    
-        <div class="clear">&nbsp;</div>    
-        <div class="clear">&nbsp;</div> 
-    </div>
+        </div>
+    </div>    
+    <div class="clear">&nbsp;</div>    
+    <div class="clear">&nbsp;</div> 
+</div>
 </div>

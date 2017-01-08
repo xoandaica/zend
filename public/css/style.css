@@ -526,3 +526,91 @@ ul.menu_left li ul li:hover a.subcate {
     margin-right: 5px;
     padding-right: 18px
 }
+div.TabViews {
+    margin-top: 50px
+}
+div.TabViews div.Tabs {
+    border-bottom: 1px solid #DDD;
+    height: 31px;
+    list-style: none outside none;
+    margin-bottom: 10px;
+    padding: 0
+}
+div.TabViews div.Tabs a {
+    float: left;
+    margin-left: 15px;
+    margin-right: -10px;
+    position: relative
+}
+div.TabViews div.Tabs a.Active {
+    border-top: 2px solid #FCA01B;
+    margin-bottom: -1px;
+    margin-left: 15px
+}
+div.TabViews div.Tabs a span {
+    background: #F2F2F2;
+    color: #039;
+    cursor: pointer;
+    float: left;
+    font: bold 12px/31px Arial;
+    height: 31px;
+    padding: 0 10px
+}
+div.TabViews div.Tabs a:hover span {
+    background: url(../../themes/default/images/product/bg.html) repeat-x scroll 0 -250px transparent
+}
+div.TabViews div.Tabs a.Active span {
+    background: none repeat scroll 0 0 #FFF;
+    border-color: #DDD;
+    border-style: solid;
+    border-width: 0 1px;
+    color: #000;
+    cursor: default;
+    display: block;
+    font: bold 16px/28px Arial;
+    height: 30px;
+    padding: 0 15px
+}
+div.TabViews div.Pages {
+    background: none repeat scroll 0 0 #FFF;
+    clear: both;
+    height: auto;
+    line-height: 1.5em;
+    overflow: hidden;
+    width: auto
+}
+div.TabViews div.Pages div.Page {
+    border-top: 0 none;
+    height: auto;
+    overflow: hidden;
+    padding: 5px;
+    width: auto
+}
+.price_order {
+    padding: 10px;
+    border-top: 1px solid #fac6aa;
+    border-bottom: 1px solid #fac6aa;
+    box-shadow: 0 0 2px #fac6aa;
+    font-weight: bold
+}
+.price_order .detail_price {
+    padding-bottom: 5px;
+    color: red;
+    font-size: 14px
+}
+.price_order .detail_order {
+    display: inline-block;
+    line-height: 41px
+}
+.price_order .pnum {
+    color: #666;
+    font-weight: bold
+}
+a.pro_order {
+    background: url(images/add-cart.html) no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 37px;
+    width: 134px;
+    margin-left: 10px;
+    margin-top: 5px
+}

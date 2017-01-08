@@ -15,7 +15,11 @@ class ProductController extends Custom_Controller_BaseController {
         $this->showMenu();
         $request = $this->getRequest(); //$this should refer to a controller
         $id = $request->getParam('id');
-        echo '<h1>'.$id.'</h1>';
+        
+        $product = $this->productsModel->fetchRow("id = ".$id);
+        $this->view->productDetail = $product;
+        
+        
     }
 
 }
