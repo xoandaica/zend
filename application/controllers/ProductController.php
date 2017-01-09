@@ -7,6 +7,7 @@ class ProductController extends Custom_Controller_BaseController {
     public function init() {
         /* Initialize action controller here */
         $this->initContent("Product");
+        $this->loadSession();
     }
 
     public function indexAction() {
@@ -26,36 +27,53 @@ class ProductController extends Custom_Controller_BaseController {
     public function cartAction() {
         // init menu
         $this->showMenu();
-//        If (!Zend_Session::sessionExist()) {
-        $sess = new Zend_Session_Namespace("cartSession");
-        $sess->cart = new Application_Model_CartModel();
+        $cart = $this->cart;
+        if ($cart == null) {
+            $cart = new Application_Model_CartModel();
+        }
+//        if ($cart->getTotalNumber() == 0) {
+        /**
+         *  add product to cart
+         */
+        // get data from request
+        $request = $this->getRequest();
+        $idProduct = $request->getPost('idProduct', null);
+        $num = $request->getPost('pnum', null);
+        // get detail product with id
+        $product = $this->productsModel->fetchRow("id = " . $idProduct);
+        $cartItem = new Application_Model_CartItem();
+        $cartItem->setProduct($product);
+        $cartItem->setNumber($num);
+        // get cart info from session
+        $arrayProduct = $cart->getListProduct();
+        // update number product
+        array_push($arrayProduct, $cartItem);
+        // update cart
+        $cart->setListProduct($arrayProduct);
+        // show view
+        $this->getSessionNs()->cart = $cart;
+        $this->view->cart = $cart;
+//        } else {
+        // update product number if existed
 //        }
-        $cart = $sess->cart;
-        if ($cart->getTotalNumber() == 0) {
-            /**
-             *  add product to cart
-             */
-            // get data from request
-            $request = $this->getRequest();
-            $idProduct = $request->getPost('idProduct', null);
-            $num = $request->getPost('pnum', null);
-            // get detail product with id
-            $product = $this->productsModel->fetchRow("id = " . $idProduct);
-            $cartItem = new Application_Model_CartItem();
-            $cartItem->setProduct($product);
-            $cartItem->setNumber($num);
-            // get cart info from session
-            $arrayProduct = $cart->getListProduct();
-            // update number product
-            array_push($arrayProduct, $cartItem);
-            // update cart
-            $cart->setListProduct($arrayProduct);
-            // show view
-            $this->view->cart = $cart;
-        } else {
-            // update product number if existed
+    }
+
+    public function setSessionNs(Zend_Session_Namespace $ns) {
+        $this->_sessionNamespace = $ns;
+    }
+
+    public function getSessionNs() {
+        if (null === $this->_sessionNamespace) {
+            $this->setSessionNs(new
+                    Zend_Session_Namespace("CartSession"));
+        }
+        return $this->_sessionNamespace;
+    }
+
+    public function loadSession() {
+        if (isset($this->getSessionNs()->cart)) {
+            $this->cart = $this->getSessionNs()->cart;
         }
     }
 
 }
-
