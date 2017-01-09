@@ -54,14 +54,17 @@
                                 <span class=""><?php echo $this->productDetail->price; ?> VND</span>
                             </p>
                         </div>           
-                        <div class="detail_order">
-                            <span class="pnum">	                 
-                                S&#7889; l&#432;&#7907;ng: 
-                                <input  type="text" name="num" value="1" style="width:50px; height:20px;" id="pnum" />
-                            </span>
-                            <a href="javascript:void(0)" id="2343" title="" class="pro_order fr" onClick="cartorder_detail(this)" style=" margin-right: 5px;">		                	
-                            </a>
-                        </div>
+                        <form <?php echo 'action="' . $this->url(array('controller' => 'Product', 'action' => 'cart')) . '"' ?> method="POST">
+                            <div class="detail_order">
+                                <span class="pnum">	                 
+                                    S&#7889; l&#432;&#7907;ng: 
+                                    <input  type="text" name="pnum" value="1" style="width:50px; height:20px;" id="pnum" />
+                                    <input  type="hidden" name="idProduct" value="1" style="width:50px; height:20px;" id="idProduct" <?php echo 'value="' . $json['ID'] . '"' ?>/>
+                                </span>
+                                <button href="javascript:void(0)" title="" class="pro_order fr" type="submit" style=" margin-right: 5px;">		                	
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <div style="clear:both"></div>
                 </div>
@@ -97,5 +100,4 @@
     </div>    
     <div class="clear">&nbsp;</div>    
     <div class="clear">&nbsp;</div> 
-</div>
 </div>

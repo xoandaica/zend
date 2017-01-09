@@ -606,11 +606,98 @@ div.TabViews div.Pages div.Page {
     color: #666;
     font-weight: bold
 }
-a.pro_order {
-    background: url(images/add-cart.html) no-repeat scroll 0 0 transparent;
-    display: block;
+button.pro_order {
+    background: url(../images/add-cart.html) no-repeat scroll 0 0 transparent;
     height: 37px;
     width: 134px;
     margin-left: 10px;
     margin-top: 5px
+}
+.fr {
+    float: right
+}
+.conhang {
+    background:url(../images/tick.gif) no-repeat scroll 0 0 transparent
+}
+.conhang span {
+    padding-left:20px;
+    font-weight:bold;
+    color:#FB490B
+}
+.rate_share {
+    margin-bottom:10px;
+    border-bottom:2px dotted #dedede
+}
+ul li.list_detail {
+    background:url(../images/list.gif) no-repeat scroll left 8px transparent;
+    display:block;
+    padding-left:15px
+}
+ul li.list_detail span {
+    font-size:13px;
+    line-height:20px
+}
+div.step_bar a.step {
+    background:url(../../themes/default/images/shops/star.png) no-repeat left center;
+    display:block;
+    float:left;
+    font-size:12px;
+    font-weight:700;
+    height:32px;
+    line-height:32px;
+    margin-right:10px;
+    padding-left:10px
+}
+div.step_bar a.step span {
+    color:#039;
+    display:block;
+    float:left;
+    font-size:13px;
+    font-weight:700;
+    height:32px;
+    text-align:center;
+    width:32px
+}
+table.rows td,
+.block_cart {
+    padding: 5px
+}
+table.rows2 {
+    border:1px solid #b9dcff;
+    padding:5px;
+    width:100%
+}
+table.rows {
+    width:100%
+}
+table.rows td img.imgpro {
+    border:1px solid #ebebeb;
+    padding:2px;
+    vertical-align:middle;
+    width:40px
+}
+table.rows tr.bg {
+    background:#f3f3f3
+}
+table.rows tr.bgtop {
+    background:#CCE6FF;
+    line-height:22px
+}
+.money {
+    color:#9D0000;
+    font-size:14px;
+    text-align:left;
+    padding-right:10px
+}
+.money_block {
+    color:#9D0000;
+    font-size:15px;
+    text-align:left;
+    padding-right:10px;
+    font-family:Tahoma
+}
+#total {
+    color:red;
+    font-size:15px;
+    font-weight:700
 }

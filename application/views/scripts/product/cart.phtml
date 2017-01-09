@@ -1,0 +1,99 @@
+<div class="l-sidebar">
+    <?php echo $this->render('/home/content_left.phtml') ?>
+</div>
+<div class="l-main">
+    <div id="productsCatalog">   
+        <?php ?>
+        <div class="step_bar clearfix">
+            <a class="step step_current" title="Kiểm tra giỏ hàng" href="#"><span>1</span>Kiểm tra giỏ hàng</a>
+            <a class="step step_disable" title="Đặt hàng" href="/order.html" id="cart_next"><span>2</span>Đặt hàng</a>
+        </div>
+        <form action="/cart.html" method="post" id="fpro">
+            <input type="hidden" value="1" name="save">
+            <table class="rows">
+                <tbody><tr class="bgtop">
+                        <td class="checkbox" width="10%" align="center" >STT</td>
+                        <td class="image" width="20%" align="center">Ảnh</td>
+                        <td class="prd" width="30%">Sản phẩm</td>
+                        <td class="price" width="10%" align="right">Giá (VND)</td>
+                        <td class="amount" align="center" width="10%">SL</td>
+                        <td class="unit" width="10%">Đơn vị</td>
+                        <td class="remove" align="center" width="10%">   </td>
+                    </tr>
+                </tbody><tbody>
+
+                    <?php
+                    foreach ($this->cart->getListProduct() as $tmp) {
+                        ?>
+                        <tr <?php echo 'id="' . $tmp->getProduct()->id . '"' ?> >
+                            <td align="center">1</td>
+                            <td align="center" >
+                                <img <?php echo 'src="' . $tmp->getProduct()->images . '"' ?> alt="/vay-dam-gia-si/dam-jean-phoi-tui-2809-4019.html" class="imgpro">
+                            </td>
+                            <td class="prd">
+                                <a title="Đầm Jean Phối Túi 2809" href="/vay-dam-gia-si/dam-jean-phoi-tui-2809-4019.html"><?php echo $tmp->getProduct()->name; ?></a>
+                            </td>
+                            <td class="money" align="right">
+                                <strong><?php echo $tmp->getProduct()->price; ?></strong>
+                            </td>
+                            <td class="amount" align="center">
+                                <input size="1"  <?php echo 'value="' . $tmp->getNumber() . '"' ?> name="listproid[4019]" id="4019" class="btnum">
+                            </td>
+                            <td class="unit">Chiếc</td>
+                            <td align="center">
+                                <a class="remove_cart" title="Xóa" href="/index.php?language=vi&amp;nv=shops&amp;op=remove&amp;id=4019">
+                                    <img alt="" <?php echo 'src="' . $this->baseUrl() . '/images/exit.png"' ?> style="width: 18px">
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    <?php } ?>
+
+                </tbody>
+            </table>
+            <div style="margin-top:5px;">
+                <div class="clearfix">
+                    <div class="fl">
+                        Tổng số tiền cần thanh toán: <span id="total">360.000</span> VND
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clearfix" style="margin-top:5px;">
+                    <div class="fl" style="width:49%;">
+                        <a class="back" title="Quay lại trang sản phẩm" href="/shops.html">Quay lại <span>trang sản phẩm</span></a>
+                    </div>
+                    <div class="fr">
+                        <input type="submit" name="cart_update" title="Cập nhật giỏ hàng" value="Cập nhật giỏ hàng">
+                        <input type="submit" name="cart_order" title="Đặt hàng" value="Đặt hàng">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            //<![CDATA[
+            var urload = nv_siteroot + 'index.php?' + nv_lang_variable + '=' + nv_sitelang + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart';
+            $("#total").load(urload + '&t=2');
+            $(function () {
+                $("a.remove_cart").click(function () {
+                    var href = $(this).attr("href");
+                    $.ajax({
+                        type: "GET",
+                        url: href,
+                        data: '',
+                        success: function (data) {
+                            if (data != '') {
+                                $("#" + data).html('');
+                                $("#cart_" + nv_module_name).load(urload);
+                                $("#total").load(urload + '&t=2');
+                            }
+                        }
+                    });
+                    return false;
+                });
+            });
+            //]]>
+        </script>
+        &nbsp;  
+    </div>
+</div>
