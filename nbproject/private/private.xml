@@ -3,20 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/layouts/scripts/content.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/layouts/scripts/layout.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/controllers/HomeController.php</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/views/scripts/product/detail.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/library/Zend/Db/Table/Abstract.php</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/layouts/scripts/header.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/library/Custom/Controller/BaseController.php</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/layouts/scripts/head_main.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/controllers/ProductController.php</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/controllers/IndexController.php</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/views/scripts/product/index.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/views/scripts/home/index.phtml</file>
-            <file>file:/C:/xampp/htdocs/zendDemo/application/views/scripts/home/content_left.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/views/scripts/product/cart.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/public/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/IndexController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/library/Zend/Controller/Action.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/head_menu.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/ProductController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/CartModel.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/views/scripts/product/detail.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/header.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/HomeController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/layout.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/CartItem.php</file>
         </group>
     </open-files>
 </project-private>
