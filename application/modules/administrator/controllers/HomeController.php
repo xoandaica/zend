@@ -1,6 +1,6 @@
 <?php
 
-class Administartor_HomeController extends Zend_Controller_Action
+class Administrator_HomeController extends Zend_Controller_Action
 {
 
     public function init()
