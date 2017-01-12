@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Zend/Session.php';
-
 class ProductController extends Custom_Controller_BaseController {
 
     public function init() {
