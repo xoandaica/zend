@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        
         <title>Adminisrator login page</title>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/jquery/jquery.min.js') ?>
         <!-- Bootstrap Core CSS -->
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/bootstrap.min.css') ?>
         <!-- MetisMenu CSS -->
@@ -14,7 +16,7 @@
         <!-- Custom CSS -->
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/sb-admin-2.css') ?>
 
-        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/jquery/jquery.min.js') ?>
+        
         <!-- Bootstrap Core JavaScript -->
         <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/bootstrap/js/bootstrap.min.js') ?>
         <!-- Metis Menu Plugin JavaScript -->

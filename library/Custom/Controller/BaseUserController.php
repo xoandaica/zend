@@ -19,4 +19,18 @@ class Custom_Controller_BaseUserController extends Zend_Controller_Action {
         $this->session = $session;
     }
 
+    function loadMenuByRole() {
+        // set listModule by Role
+        $moduleDAO = new Application_Model_DbTable_Modules();
+        $arrayIdFunction = explode(",", $this->getSession()->userInfor->getUserRole()->id_functions);
+        $listModuleByRole = $moduleDAO->getListModuleByFunctionId($arrayIdFunction);
+        $this->view->listModuleByRole = $listModuleByRole;
+    }
+
+    function loadUserInfor() {
+        if ($this->getSession()->userInfor != null) {
+            $this->view->userInfor = $this->getSession()->userInfor;
+        }
+    }
+
 }

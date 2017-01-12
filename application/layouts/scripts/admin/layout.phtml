@@ -1,17 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Zend</title>
-        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/bootstrap.min.css') ?>
-        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/style.css') ?>
-        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-3.1.1.min.js') ?>
-        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/bootstrap.min.js') ?>
-        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/application.js') ?>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Admin Index page</title>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/jquery/jquery.min.js') ?>
+
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/bootstrap/js/bootstrap.min.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/metisMenu/metisMenu.min.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/morrisjs/morris.min.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/raphael/raphael.min.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/sb-admin-2.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/nestable/jquery.nestable.js') ?>
+
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/plugins/bootstrap/css/bootstrap.min.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/plugins/metisMenu/metisMenu.min.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/plugins/morrisjs/morris.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/sb-admin-2.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/plugins/font-awesome/css/font-awesome.min.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/admin_style.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/plugins/nestable/nestable.css') ?>
+        
+
     </head>
     <body>
-        <?php echo $this->render('/header.phtml') ?>
-        <!-- //<?php echo $this->render('/footer.phtml') ?>-->
+        <div id="wrapper">
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+                <?php echo $this->render('/admin/header.phtml') ?>
+                <?php echo $this->render('/admin/menu.phtml') ?>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+            <div id="page-wrapper">
+                <!-- /.row -->
+                <?php echo $this->render('/admin/content.phtml') ?>
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+
     </body>
+
 </html>

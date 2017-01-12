@@ -11,6 +11,7 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
     public function loginAction() {
         if ($this->getSession()->userInfor != null) {
             $this->view->userInfor = $this->getSession()->userInfor;
+            $this->loadMenuByRole();
             $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
                 'administrator', 'controller' => 'Home'));
         } else {
@@ -21,19 +22,12 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
                 $userInfor = $this->login($username, $password);
                 if ($userInfor != null) {
                     $this->getSession()->userInfor = $userInfor;
-                    $this->view->userInfor = $userInfor;
                     // set listModule by Role
-                    $functionDAO = new Application_Model_DbTable_Functions();
-                    $arrayIdFunction = explode(",", $userInfor->getUserRole()->id_functions);
-                    print_r($arrayIdFunction);
-                    $listModuleByRole = $functionDAO->getListModuleByFunctionID($arrayIdFunction);
-//                    $this->view->listModuleByRole = $listModuleByRole;
-
-//                    $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
-//                        'administrator', 'controller' => 'Home'));
-                    print_r($listModuleByRole);
-//                    $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
-//                        'administrator', 'controller' => 'Login'));
+                    $this->loadUserInfor();
+                    $this->loadMenuByRole();
+//                    $this->_helper->layout->setLayout('/admin/layout');
+                    $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
+                        'manageMenu', 'controller' => 'Home'));
                 } else {
                     $this->view->loginStatus = 'false';
                     $this->_helper->viewRenderer->renderBySpec('login', array('module' =>

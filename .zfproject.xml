@@ -37,6 +37,8 @@
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="Roles"/>
           <dbTableFile dbTableName="Functions"/>
+          <dbTableFile dbTableName="Modules"/>
+          <dbTableFile dbTableName="Menus"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false">
@@ -117,6 +119,23 @@
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+        <moduleDirectory moduleName="ManageMenu">
+          <configsDirectory enabled="false"/>
+          <controllersDirectory/>
+          <formsDirectory enabled="false"/>
+          <layoutsDirectory enabled="false">
+            <layoutScriptsDirectory enabled="false"/>
+          </layoutsDirectory>
+          <modelsDirectory>
+            <dbTableDirectory enabled="false"/>
+          </modelsDirectory>
+          <servicesDirectory enabled="false"/>
+          <viewsDirectory>
+            <viewScriptsDirectory/>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
           </viewsDirectory>

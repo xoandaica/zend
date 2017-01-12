@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <a href="#">Dashboard</a>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary" name="Thêm" value="Thêm" id="btnAddMenu">Thêm Menu</button>
+        <button class="btn btn-primary" name="Thêm" value="Thêm" id="btnSaveMenu">Lưu vị trí</button>
+    </div>
+</div>
+<div class="row top_space" style="text-align: center;" >
+    <?php echo '<a href="' . $this->url(array('controller' => 'Home', 'action' => 'view', 'module' => "menu", "menuPosition" => "top")) . '">' ?>
+    <div class="col-lg-8 col-lg-offset-2 " style="background-color: #0088cc;height: 80px;" >
+        <h1 style="color: black;text-align: center;"> Menu Top</h1>
+    </div>
+</a>
+<?php echo '<a href="' . $this->url(array('controller' => 'Home', 'action' => 'view', 'module' => "menu", "menuPosition" => "left")) . '">' ?>
+<div class="col-lg-2 col-lg-offset-2" style="background-color: #060;height: 300px;" >
+    <h1 style="color: black; justify-content: center;"> Menu Left</h1>
+</div>
+</a>
+<div class="col-lg-2" style="height: 300px;" >  
+</div>
+<?php echo '<a href="' . $this->url(array('controller' => 'Home', 'action' => 'view', 'module' => "menu", "menuPosition" => "right")) . '">' ?>
+<div class="col-lg-2 col-lg-offset-2" style="background-color: tomato;height: 300px;" >
+    <h1 style="color: black;"> Menu Right</h1>
+</div>
+</a>
+<?php echo '<a href="' . $this->url(array('controller' => 'Home', 'action' => 'view', 'module' => "menu", "menuPosition" => "bottom")) . '">' ?>
+<div class="col-lg-8 col-lg-offset-2" style="background-color: springgreen;height: 80px;" >
+    <h1 style="color: black;text-align: center;"> Menu Bottom</h1>
+</div>
+</a>
+</div>
+
