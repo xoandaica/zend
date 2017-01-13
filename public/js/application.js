@@ -3,13 +3,12 @@ $(function () {
 
 
 
-
 });
 
 
 function cartorder_detail(id)
-{   
-    
+{
+
     $.ajax({
         type: 'POST',
         url: "/rebootMultiDevice?now=" + rebootNowOrLast,

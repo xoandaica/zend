@@ -11,8 +11,10 @@ class Application_Model_DbTable_Menus extends Zend_Db_Table_Abstract {
             foreach ($rows as $element) {
                 if ($element['root_menu'] === null) {
                     $menu = new Menu_Model_Menu();
+                    $menu->setDataId();
                     $menu->setCurrentMenu($element['name']);
                     $menu->setArrayChildMenu($this->loopChild($element, $rows));
+
                     array_push($arrayMenu, $menu);
                 }
             }
@@ -27,12 +29,22 @@ class Application_Model_DbTable_Menus extends Zend_Db_Table_Abstract {
         foreach ($rows as $element) {
             if ($element['root_menu'] != null && $element['root_menu'] == $tmp['id']) {
                 $menu = new Menu_Model_Menu();
+                $menu->setDataId();
                 $menu->setCurrentMenu($element['name']);
                 $menu->setArrayChildMenu($this->loopChild($element, $rows));
                 array_push($arrayChildMenu, $menu);
             }
         }
         return $arrayChildMenu;
+    }
+
+    public function updateMenu($idMenu, $rootMenu) {
+        try {
+            $arrayData = array('root_menu' => $rootMenu);
+            $this->update($arrayData, " id =" . $idMenu);
+        } catch (Zend_Exception $e) {
+            Zend_Debug::dump($e);
+        }
     }
 
 }

@@ -45,11 +45,10 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <?php echo '<form action="' . $this->url(array('controller' => 'Home', 'action' => 'save', 'module' => "menu")) . '" method="post">' ?>
+        <?php echo '<form action="' . $this->url(array('controller' => 'Home', 'action' => 'save', 'module' => "menu", "menuPosition" => $this->menuPosition)) . '">' ?>
         <button class="btn btn-primary" name="Thêm" value="Thêm" id="btnAddMenu">Thêm Menu</button>
         <button class="btn btn-primary" name ="Thêm" value="Thêm" id="btnSaveMenu">Lưu vị trí</button>
-        <input type="hidden" value="nestable-output" id="nestable-output" name="newMenu"/>   
-        <input type="hidden"  name="menuPosition" <?php echo 'value="' . $this->menuPosition . '"' ?> />   
+        <input type="hidden" value="nestable-output" id="nestable-output" />   
         </form>
     </div>
 </div>
