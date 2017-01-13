@@ -8,6 +8,10 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
         $this->loadSession();
     }
 
+    /**
+     * Login Action
+     * return a view named login.phtml
+     */
     public function loginAction() {
         if ($this->getSession()->userInfor != null) {
             $this->view->userInfor = $this->getSession()->userInfor;
@@ -37,6 +41,9 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
         }
     }
 
+    /**
+     * logout Action
+     */
     public function logoutAction() {
         $this->getSession()->unsetAll();
         $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
