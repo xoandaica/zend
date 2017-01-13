@@ -1,6 +1,6 @@
 <?php
 
-class ManageMenu_HomeController extends Custom_Controller_BaseUserController {
+class Menu_HomeController extends Custom_Controller_BaseUserController {
 
     public function init() {
         /* Initialize action controller here */
@@ -16,8 +16,11 @@ class ManageMenu_HomeController extends Custom_Controller_BaseUserController {
 
     public function viewAction() {
         $request = $this->getRequest();
-        $menuPosition = $request->getPost("menuPosition", null);
-        print_r($menuPosition);
+        $menuPosition = $request->getParam("menuPosition");
+        $menus = new Application_Model_DbTable_Menus();
+        $this->view->listMenu = $menus->getAllMenu($menuPosition);
+        
+        echo $menuPosition;
     }
 
 }

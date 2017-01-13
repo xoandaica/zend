@@ -38,6 +38,7 @@
           <dbTableFile dbTableName="Roles"/>
           <dbTableFile dbTableName="Functions"/>
           <dbTableFile dbTableName="Modules"/>
+          <dbTableFile dbTableName="Menus"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false">
