@@ -33,8 +33,8 @@ class Menu_Model_Menu {
         return $this->dataId;
     }
 
-    function setDataId() {
-        $this->dataId = self::$numberObject;
+    function setDataId($dataId) {
+        $this->dataId = $dataId;
     }
 
     static function getNumberObject() {
@@ -44,6 +44,5 @@ class Menu_Model_Menu {
     static function setNumberObject($numberObject) {
         self::$numberObject = $numberObject;
     }
-
 
 }

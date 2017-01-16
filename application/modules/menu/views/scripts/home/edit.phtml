@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-12">
         <div class="body collapse in" id="div1">
-            <form class="form-horizontal" role="form" id="form1" method="POST"  <?php echo 'action="' . $this->url(array('controller' => 'Home', 'action' => 'add', 'module' => "menu", "menuPosition" => "top")) . '"' ?> enctype="multipart/form-data" >
+            <form class="form-horizontal" role="form" id="form1" method="POST" <?php echo 'action="' . $this->url(array('controller' => 'Home', 'action' => 'edit', 'module' => "menu", "menuPosition" => "top")) . '"' ?> enctype="multipart/form-data">
                 <input type="hidden" name="edit_id" value="">
                 <input type="hidden" value="vi" id="lang">
                 <div class="col-md-8" style="font-size: 12px">
@@ -19,10 +19,10 @@
                         <div class="panel-heading">
                             <h3 class="panel-title pull-left">Tổng quan</h3>
 
-                            <!--                            <div class="pull-right">
-                                                            <button type="submit" class="btn btn-success btn-sm" name="editMenu"><i class="fa fa-delete"></i> Xóa
-                                                            </button>
-                                                        </div>-->
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-success btn-sm" name="deleteMenu"><i class="fa fa-delete"></i> Xóa
+                                </button>
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="panel-body" style="min-height: 530px">
@@ -30,13 +30,13 @@
                                 <label for="inputEmail1" class="col-sm-2 control-label">Tên menu:</label>
 
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control input-sm " name="title" value="" placeholder="Tên menu">
+                                    <input type="text" class="form-control input-sm " name="title" <?php echo 'value="' . $this->currentMenu['name'] . '"' ?>  placeholder="Tên menu">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Alias:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control input-sm " name="alias" value="" placeholder="">
+                                    <input type="text" class="form-control input-sm " name="alias" <?php echo 'value="' . $this->currentMenu['alias'] . '"' ?> placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -45,22 +45,22 @@
                                 <div class="col-sm-5">
                                     <select name="position" class="form-control input-sm" onchange="select_lang($('#lang').val(), $(this).val())" id="position">
                                         <option value="top" <?php
-                                        if ($this->menuPosition == 'top') {
+                                        if ($this->currentMenu['position'] == 'top') {
                                             echo 'selected=""';
                                         }
                                         ?>>Menu top</option>
                                         <option value="left" <?php
-                                        if ($this->menuPosition == 'left') {
+                                        if ($this->currentMenu['position'] == 'left') {
                                             echo 'selected=""';
                                         }
                                         ?>>Menu left</option>
                                         <option value="right" <?php
-                                        if ($this->menuPosition == 'right') {
+                                        if ($this->currentMenu['position'] == 'right') {
                                             echo 'selected=""';
                                         }
                                         ?>>Menu right</option>
                                         <option value="bottom" <?php
-                                        if ($this->menuPosition == 'bottom') {
+                                        if ($this->currentMenu['position'] == 'bottom') {
                                             echo 'selected=""';
                                         }
                                         ?>>Menu bottom</option>
@@ -76,15 +76,20 @@
 
                                         <?php
 
-                                        function viewMenu($arrayMenu) {
+                                        function viewMenu($arrayMenu, $parentMenu) {
                                             for ($i = 0; $i < sizeof($arrayMenu); $i++) {
-                                                echo '<option value=' . $arrayMenu[$i]->getDataId() . '">' . $arrayMenu[$i]->getCurrentMenu() . '</option>';
+                                                echo '<option ';
+                                                if ($parentMenu === $arrayMenu[$i]->getDataId()) {
+                                                    echo 'selected=""';
+                                                }
+                                                echo 'value="' . $arrayMenu[$i]->getDataId();
+                                                echo '">' . $arrayMenu[$i]->getCurrentMenu() . '</option>';
                                                 $_COUNT = 0;
-                                                loopChildMenu($arrayMenu[$i], $_COUNT);
+                                                loopChildMenu($arrayMenu[$i], $_COUNT, $parentMenu);
                                             }
                                         }
 
-                                        function loopChildMenu($menu, $_COUNT) {
+                                        function loopChildMenu($menu, $_COUNT, $parentMenu) {
                                             // $_COUNT use to reset index root menu
                                             STATIC $_count = 0;
                                             if ($_COUNT == 0) {
@@ -92,8 +97,12 @@
                                             }
                                             if (sizeof($menu->getArrayChildMenu()) > 0) {
                                                 for ($i1 = 0; $i1 < sizeof($menu->getArrayChildMenu()); $i1 ++) {
-                                                    echo '<option value=' . $menu->getArrayChildMenu()[$i1]->getDataId() . '">' . expression($_count) . '-' . $menu->getArrayChildMenu()[$i1]->getCurrentMenu() . '</option>';
-                                                    loopChildMenu($menu->getArrayChildMenu()[$i1], ++$_count);
+                                                    echo '<option ';
+                                                    if ($parentMenu === $menu->getArrayChildMenu()[$i1]->getDataId()) {
+                                                        echo 'selected=""';
+                                                    }
+                                                    echo 'value="' . $menu->getArrayChildMenu()[$i1]->getDataId() . '">' . expression($_count) . '-' . $menu->getArrayChildMenu()[$i1]->getCurrentMenu() . '</option>';
+                                                    loopChildMenu($menu->getArrayChildMenu()[$i1], ++$_count, $parentMenu);
                                                 }
                                             } else {
                                                 --$_count;
@@ -113,7 +122,7 @@
                                             return $express;
                                         }
 
-                                        viewMenu($this->listMenu);
+                                        viewMenu($this->listMenu, $this->currentMenu['root_menu']);
                                         ?>
 
                                     </select>
@@ -126,10 +135,13 @@
                                 <div class="col-sm-5">
                                     <!--<option value="news" /**/ >Tin tức</option>-->
                                     <select name="module" id="sc_get" class="form-control input-sm">
-                                        <option value="0">Chọn module</option>
                                         <?php
                                         foreach ($this->listModules as $module) {
-                                            echo '<option value="' . $module['id'] . '">' . $module['name'] . '</option>';
+                                            echo '<option ';
+                                            if ((int) $module['id'] === $this->currentMenu['module']) {
+                                                echo 'selected=""';
+                                            }
+                                            echo 'value="' . $module['id'] . '">' . $module['name'] . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -170,7 +182,8 @@
 
                                 <div class="col-sm-5">
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-success btn-sm" name="addmenu"><i class="fa fa-save"></i> Lưu
+                                        <input type="hidden" <?php echo 'value="' . $this->currentMenu['id'] . '"' ?> name="id" />
+                                        <button type="submit" class="btn btn-success btn-sm" name="editMenu"><i class="fa fa-save"></i> Lưu
                                         </button>
                                     </div>
                                 </div>

@@ -45,7 +45,7 @@
 </div>
 <div class="row">
     <div class="col-sm-2" >
-        <?php echo '<form action="' . $this->url(array('controller' => 'Home', 'action' => 'add', 'module' => "menu")) . '" method="post">' ?>
+        <?php echo '<form action="' . $this->url(array('controller' => 'Home', 'action' => 'add', 'module' => "menu")) . '" method="get">' ?>
         <button class="btn btn-primary" name="Thêm" value="Thêm" id="btnAddMenu">Thêm Menu</button>
 
         </form>
@@ -65,33 +65,32 @@
         <div class="dd" id="nestable">
             <ol class="dd-list">
                 <?php
-                function viewMenu($arrayMenu,$controller) {
+
+                function viewMenu($arrayMenu, $controller) {
                     for ($i = 0; $i < sizeof($arrayMenu); $i++) {
-                        loopChildMenu($arrayMenu[$i],$controller);
+                        loopChildMenu($arrayMenu[$i], $controller);
                     }
                 }
 
-                
-
-                function loopChildMenu($menu,$controller) {
+                function loopChildMenu($menu, $controller) {
                     echo '<li class="dd-item dd3-item"  data-id="' . $menu->getDataId() . '"  >';
                     echo '<div class="dd-handle dd3-handle">Drag</div>';
-                    echo '<div class="dd3-content" onclick="location.href=\'' . $controller .'/'.$menu->getDataId(). '\'">' . $menu->getCurrentMenu() . '</div>';
+                    echo '<div class="dd3-content" onclick="location.href=\'' . $controller . '/id/' . $menu->getDataId() . '\'">' . $menu->getCurrentMenu() . '</div>';
                     if (sizeof($menu->getArrayChildMenu()) > 0) {
                         echo ' <ol class="dd-list">';
                         for ($i1 = 0; $i1 < sizeof($menu->getArrayChildMenu()); $i1 ++) {
-                            loopChildMenu($menu->getArrayChildMenu()[$i1],$controller);
+                            loopChildMenu($menu->getArrayChildMenu()[$i1], $controller);
                         }
                         echo '</ol>';
                     }
                     echo '</li>';
                 }
-                function getController($controller){
+
+                function getController($controller) {
                     return $controller;
                 }
-                
-                    
-                viewMenu($this->listMenu,$this->url(array('controller' => 'Home', 'action' => 'edit', 'module' => "menu")));
+
+                viewMenu($this->listMenu, $this->url(array('controller' => 'Home', 'action' => 'edit', 'module' => "menu", 'menuPosition' => $this->menuPosition), null, true));
                 ?>
             </ol>
         </div>

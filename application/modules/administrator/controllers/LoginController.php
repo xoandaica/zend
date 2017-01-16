@@ -13,31 +13,34 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
      * return a view named login.phtml
      */
     public function loginAction() {
-        if ($this->getSession()->userInfor != null) {
-            $this->view->userInfor = $this->getSession()->userInfor;
-            $this->loadMenuByRole();
-            $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
-                'administrator', 'controller' => 'Home'));
-        } else {
-            $request = $this->getRequest();
-            if ($request->isPost()) {
-                $username = $request->getPost('username', null);
-                $password = $request->getPost('password', null);
-                $userInfor = $this->login($username, $password);
-                if ($userInfor != null) {
-                    $this->getSession()->userInfor = $userInfor;
-                    // set listModule by Role
-                    $this->loadUserInfor();
-                    $this->loadMenuByRole();
-//                    $this->_helper->layout->setLayout('/admin/layout');
-                    $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
-                        'manageMenu', 'controller' => 'Home'));
-                } else {
-                    $this->view->loginStatus = 'false';
-                    $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
-                        'administrator', 'controller' => 'Login'));
+        try {
+            if ($this->getSession()->userInfor != null) {
+                $this->view->userInfor = $this->getSession()->userInfor;
+                $this->loadMenuByRole();
+                $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
+                    'administrator', 'controller' => 'Home'));
+            } else {
+                $request = $this->getRequest();
+                if ($request->isPost()) {
+                    $username = $request->getPost('username', null);
+                    $password = $request->getPost('password', null);
+                    $userInfor = $this->login($username, $password);
+                    if ($userInfor != null) {
+                        $this->getSession()->userInfor = $userInfor;
+                        // set listModule by Role
+                        $this->loadUserInfor();
+                        $this->loadMenuByRole();
+                        $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
+                            'manageMenu', 'controller' => 'Home'));
+                    } else {
+                        $this->view->loginStatus = 'false';
+                        $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
+                            'administrator', 'controller' => 'Login'));
+                    }
                 }
             }
+        } catch (Zend_Exception $ex) {
+            Zend_Debug::dump($ex);
         }
     }
 
@@ -51,7 +54,6 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
     }
 
     public function login($username, $password) {
-        
         $userWithRole = new Administrator_Model_UserInfor();
         $loginDAO = new Application_Model_DbTable_Users();
         $roleDAO = new Application_Model_DbTable_Roles();

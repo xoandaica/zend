@@ -4,6 +4,16 @@ class Application_Model_DbTable_Modules extends Zend_Db_Table_Abstract {
 
     protected $_name = 'modules';
 
+    public function getAllModulesForMenus() {
+        try {
+            // with can_show = 0, this modules can't be included in menus
+            $rows = $this->fetchAll(' can_show = 1');
+        } catch (Zend_Exception $ex) {
+            Zend_Debug::dump($ex);
+        }
+        return $rows->toArray();
+    }
+
     public function getListModuleByFunctionId($arrayFunctionId) {
         try {
             $condition = " id in (";
