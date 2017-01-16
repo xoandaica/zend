@@ -1,0 +1,79 @@
+<div class="head-nav">
+    <div class="nav" id="primary_nav_wrap">
+        <ul>
+            <li class="current-menu-item"><a href="#">Home</a></li>
+
+            <?php
+
+            function viewMenu($arrayMenu) {
+                for ($i = 0; $i < sizeof($arrayMenu); $i++) {
+                    loopChildMenu($arrayMenu[$i]);
+                }
+            }
+
+            function loopChildMenu($menu) {
+                echo '<li><a href="#">'.$menu->getCurrentMenu().'</a>';
+                if (sizeof($menu->getArrayChildMenu()) > 0) {
+                    echo '<ul>';
+                    for ($i1 = 0; $i1 < sizeof($menu->getArrayChildMenu()); $i1 ++) {
+                        loopChildMenu($menu->getArrayChildMenu()[$i1]);
+                    }
+                    echo '</ul>';
+                }
+                echo '</li>';
+            }
+            viewMenu($this->listMenusTop);
+            ?>
+
+<!--            <li><a href="#">Menu 1</a>
+                <ul>
+                    <li><a href="#">Sub Menu 1</a></li>
+                    <li><a href="#">Sub Menu 2</a></li>
+                    <li><a href="#">Sub Menu 3</a></li>
+                    <li><a href="#">Sub Menu 4</a>
+                        <ul>
+                            <li><a href="#">Deep Menu 1</a>
+                                <ul>
+                                    <li><a href="#">Sub Deep 1</a></li>
+                                    <li><a href="#">Sub Deep 2</a></li>
+                                    <li><a href="#">Sub Deep 3</a></li>
+                                    <li><a href="#">Sub Deep 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Deep Menu 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sub Menu 5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu 2</a>
+                <ul>
+                    <li><a href="#">Sub Menu 1</a></li>
+                    <li><a href="#">Sub Menu 2</a></li>
+                    <li><a href="#">Sub Menu 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu 3</a>
+                <ul>
+                    <li class="dir"><a href="#">Sub Menu 1</a></li>
+                    <li class="dir"><a href="#">Sub Menu 2 THIS IS SO LONG IT MIGHT CAUSE AN ISSEUE BUT MAYBE NOT?</a>
+                        <ul>
+                            <li><a href="#">Category 1</a></li>
+                            <li><a href="#">Category 2</a></li>
+                            <li><a href="#">Category 3</a></li>
+                            <li><a href="#">Category 4</a></li>
+                            <li><a href="#">Category 5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sub Menu 3</a></li>
+                    <li><a href="#">Sub Menu 4</a></li>
+                    <li><a href="#">Sub Menu 5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu 4</a></li>
+            <li><a href="#">Menu 5</a></li>
+            <li><a href="#">Menu 6</a></li>
+            <li><a href="#">Contact Us</a></li>-->
+        </ul>
+    </div>
+</div>

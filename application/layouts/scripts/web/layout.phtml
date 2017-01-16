@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Zend</title>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/plugins/bootstrap/css/bootstrap.min.css') ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/style.css') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/jquery/jquery.min.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/plugins/bootstrap/js/bootstrap.min.js') ?>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/application.js') ?>
+    </head>
+    <body>
+        <?php echo $this->render('/web/header.phtml') ?>
+        <!-- //<?php echo $this->render('/web/footer.phtml') ?>-->
+    </body>
+</html>
