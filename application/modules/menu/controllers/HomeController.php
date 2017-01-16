@@ -3,7 +3,7 @@
 class Menu_HomeController extends Custom_Controller_BaseUserController {
 
     private $menuDAO;
-    
+
     /**
      * auto call this method when action being call
      */
@@ -15,11 +15,11 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
         $this->loadMenuByRole();
         $this->menuDAO = new Application_Model_DbTable_Menus();
     }
-    
+
     public function indexAction() {
         // action body
     }
-    
+
     /**
      * view list menu
      */
@@ -29,6 +29,10 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
         $menuPosition = $request->getParam("menuPosition");
         $this->view->listMenu = $this->menuDAO->getAllMenu($menuPosition);
         $this->view->menuPosition = $menuPosition;
+        $url = $this->getHelper('url')->url(array('module' => 'menu',
+            'controller' => 'Home',
+            'action' => 'edit'));
+        $this->view->editController = $url;
     }
 
     /**
@@ -45,6 +49,14 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
             $this->menuDAO->updateMenu($parentMenu['id'], null);
             $this->loop($parentMenu);
         }
+    }
+
+    public function addAction() {
+        
+    }
+
+    public function editAction() {
+        
     }
 
     /*

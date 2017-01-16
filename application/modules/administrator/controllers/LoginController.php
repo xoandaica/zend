@@ -51,6 +51,7 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
     }
 
     public function login($username, $password) {
+        
         $userWithRole = new Administrator_Model_UserInfor();
         $loginDAO = new Application_Model_DbTable_Users();
         $roleDAO = new Application_Model_DbTable_Roles();

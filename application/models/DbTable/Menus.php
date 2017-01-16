@@ -14,7 +14,6 @@ class Application_Model_DbTable_Menus extends Zend_Db_Table_Abstract {
                     $menu->setDataId();
                     $menu->setCurrentMenu($element['name']);
                     $menu->setArrayChildMenu($this->loopChild($element, $rows));
-
                     array_push($arrayMenu, $menu);
                 }
             }

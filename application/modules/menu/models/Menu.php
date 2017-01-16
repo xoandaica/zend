@@ -45,4 +45,5 @@ class Menu_Model_Menu {
         self::$numberObject = $numberObject;
     }
 
+
 }
