@@ -10,7 +10,6 @@ class Web_HomeController extends Custom_Controller_BaseController {
     public function indexAction() {
         // show list menu
         $this->showMenu();
-
         // show list product
         $listProducts = [];
         $allRootCategory = $this->categoriesModel->getAllRootCategories();

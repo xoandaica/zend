@@ -17,8 +17,9 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
             if ($this->getSession()->userInfor != null) {
                 $this->view->userInfor = $this->getSession()->userInfor;
                 $this->loadMenuByRole();
-                $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
-                    'administrator', 'controller' => 'Home'));
+                $this->_helper->redirector('index', 'Home', 'administrator');
+//                $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
+//                    'administrator', 'controller' => 'Home'));
             } else {
                 $request = $this->getRequest();
                 if ($request->isPost()) {
@@ -30,12 +31,14 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
                         // set listModule by Role
                         $this->loadUserInfor();
                         $this->loadMenuByRole();
-                        $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
-                            'manageMenu', 'controller' => 'Home'));
+//                        $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
+//                            'manageMenu', 'controller' => 'Home'));
+                        $this->_helper->redirector('index', 'Home', 'administrator');
                     } else {
                         $this->view->loginStatus = 'false';
-                        $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
-                            'administrator', 'controller' => 'Login'));
+//                        $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
+//                            'administrator', 'controller' => 'Login'));
+                        $this->_helper->redirector('login', 'Login', 'administrator');
                     }
                 }
             }

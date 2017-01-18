@@ -782,3 +782,38 @@ table.rows tr.bgtop {
 {
     display:block
 }
+.box_module {
+    border: 1px solid# E9E9E9;border-radius: 5px;width: 230px;margin-top: 10px
+}
+.box_module .module_title {
+    background-color:  #0d136a;
+    background-position:0 0;
+    background-repeat:repeat-x;
+    background-size:100% 100%;
+    color:#FFF;
+    font-family: Tahoma;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.block-stat ul {
+    margin-bottom: 5px;
+    margin-left: 5px;
+}.block-stat ul li {
+    padding: 10px 0 4px 26px
+}.block-stat ul li.online {
+    background: url(../images/list.gif) 0 50% no-repeat
+}.block-stat ul li.guest {
+    background: url(../images/list.gif) 0 50% no-repeat
+}.block-stat ul li.user {
+    background: url(../images/list.gif) 0 50% no-repeat
+}.block-stat ul li.bot {
+    background: url(../images/list.gif) 0 50% no-repeat
+}.block-stat ul li.today {
+    background: url(../images/list.gif) 0 50% no-repeat
+}.block-stat ul li.month {
+    background: url(../images/list.gif) 0 50% no-repeat
+}.block-stat ul li.statistics {
+    background: url(../images/list.gif) 0 50% no-repeat
+}

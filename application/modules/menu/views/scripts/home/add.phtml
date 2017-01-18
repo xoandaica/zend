@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-12">
         <div class="body collapse in" id="div1">
-            <form class="form-horizontal" role="form" id="form1" method="POST"  <?php echo 'action="' . $this->url(array('controller' => 'Home', 'action' => 'add', 'module' => "menu", "menuPosition" => "top")) . '"' ?> enctype="multipart/form-data" >
+            <form class="form-horizontal" role="form" id="form1" method="POST"  <?php echo 'action="' . $this->url(array('controller' => 'Home', 'action' => 'add', 'module' => "menu", "menuPosition" => $this->menuPosition)) . '"' ?> enctype="multipart/form-data" >
                 <input type="hidden" name="edit_id" value="">
                 <input type="hidden" value="vi" id="lang">
                 <div class="col-md-8" style="font-size: 12px">
@@ -115,7 +115,7 @@
 
                                         viewMenu($this->listMenu);
                                         ?>
-
+                                        <option value="-1">None</option> 
                                     </select>
                                 </div>
                             </div>

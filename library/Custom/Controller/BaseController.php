@@ -51,6 +51,7 @@ class Custom_Controller_BaseController extends Zend_Controller_Action {
         $this->view->categoriesSub = clone $listCategories;
 
         $this->view->listMenusTop = $this->menusDAO->getAllMenu('top');
+        $this->view->listMenusLeft = $this->menusDAO->getAllMenu('left');
     }
 
 }

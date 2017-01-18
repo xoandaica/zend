@@ -65,6 +65,8 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
             $alias = $request->getPost("alias", null);
             $posistion = $request->getPost("position", null);
             $root = $request->getPost("parent", null);
+            if ($root == -1)
+                $root = null;
             $module = $request->getPost("module", null);
             $content = $request->getPost("subcat", null);
             $description = $request->getPost("description", null);
@@ -93,6 +95,8 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
                 $alias = $request->getPost("alias", null);
                 $posistion = $request->getPost("position", null);
                 $root = $request->getPost("parent", null);
+                if ($root == -1)
+                    $root = null;
                 $module = $request->getPost("module", null);
                 $content = $request->getPost("subcat", null);
                 $description = $request->getPost("description", null);
