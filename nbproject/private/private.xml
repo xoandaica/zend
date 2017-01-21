@@ -3,26 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/zend_demo/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/example/page</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/scripts/build/myshop_1.sql</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/product/controllers/CategoryController.php</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/admin/layout.phtml</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/view.phtml</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/add.phtml</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/models/Menu.php</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/controllers/HomeController.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/public/plugins/nestable/nestable.css</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/scripts/build/myshop_2.sql</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/index.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/admin/content.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/layouts/scripts/admin/menu.phtml</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Modules.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/scripts/build/myshop.sql</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/product/views/scripts/category/view.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/save.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/library/Custom/Controller/BaseUserController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/controllers/IndexController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/administrator/views/scripts/home/index.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/product/views/scripts/home/index.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/library/Custom/Controller/BaseController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/administrator/views/scripts/login/index.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/administrator/controllers/HomeController.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/view.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Functions.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Categories.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/index.phtml</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/library/Custom/Database/AbstractCRUD.php</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/edit.phtml</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/modules/administrator/views/scripts/login/login.phtml</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/menu/views/scripts/home/save.phtml</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Menus.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/library/Zend/Db/Table/Abstract.php</file>
             <file>file:/C:/xampp/htdocs/zend_demo/application/modules/administrator/controllers/LoginController.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/library/Custom/Controller/BaseUserController.php</file>
-            <file>file:/C:/xampp/htdocs/zend_demo/public/plugins/nestable/jquery.nestable.js</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/models/DbTable/Menus.php</file>
+            <file>file:/C:/xampp/htdocs/zend_demo/application/modules/administrator/views/scripts/login/logout.phtml</file>
         </group>
     </open-files>
 </project-private>

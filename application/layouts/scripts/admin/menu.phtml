@@ -19,20 +19,22 @@
             foreach ($this->listModuleByRole as $tmp) {
                 ?>
                 <li>
-                    <?php echo '<a href="' . $tmp['link'] . '">' ?><i class="fa fa-edit fa-fw"></i> <?php
+                    <?php
+                    echo '<a href="' . $tmp['link'] . '"><i class="fa fa-edit fa-fw"></i> ';
                     echo $tmp['name'];
-                    $ar = json_decode($tmp['sub_pages']);
-                    if (sizeof($ar) > 0) {
+                    $this->ar = json_decode($tmp['sub_pages']);
+                    if (sizeof($this->ar) > 0) {
                         echo '<span class="fa arrow"></span>';
                     }
-                    ?> </a>
-                    <?php
-                    $ar = json_decode($tmp['sub_pages']);
-                    echo '<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">';
-                    foreach ($ar as $sub) {
-                        echo ' <li>';
-                        echo' <a href="' . $sub->link . '">' . $sub->name . '</a>';
-                        echo '</li>';
+                    echo '</a>';
+                    if (sizeof($this->ar) > 0) {
+                        echo '<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">';
+                        for ($i = 0; $i < sizeof($this->ar); $i++) {
+                            $sub = $this->ar[$i];
+                            echo '<li>';
+                            echo' <a href="' . $sub->link . '">' . $sub->name . '</a>';
+                            echo '</li>';
+                        }
                     }
                     ?>
                 </li>

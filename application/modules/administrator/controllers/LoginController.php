@@ -28,17 +28,12 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
                     $userInfor = $this->login($username, $password);
                     if ($userInfor != null) {
                         $this->getSession()->userInfor = $userInfor;
-                        // set listModule by Role
-                        $this->loadUserInfor();
-                        $this->loadMenuByRole();
-//                        $this->_helper->viewRenderer->renderBySpec('index', array('module' =>
-//                            'manageMenu', 'controller' => 'Home'));
                         $this->_helper->redirector('index', 'Home', 'administrator');
                     } else {
                         $this->view->loginStatus = 'false';
-//                        $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
-//                            'administrator', 'controller' => 'Login'));
-                        $this->_helper->redirector('login', 'Login', 'administrator');
+                        $this->_helper->viewRenderer->renderBySpec('login', array('module' =>
+                            'administrator', 'controller' => 'Login'));
+//                        $this->_helper->redirector('login', 'Login', 'administrator');
                     }
                 }
             }

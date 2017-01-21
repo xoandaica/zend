@@ -20,6 +20,7 @@ class Product_CategoryController extends Custom_Controller_BaseUserController {
 
     public function addAction() {
         
+        
     }
 
     public function editAction() {

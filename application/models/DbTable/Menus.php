@@ -47,41 +47,41 @@ class Application_Model_DbTable_Menus extends Zend_Db_Table_Abstract {
         }
     }
 
-    public function updateMenu1($name, $alias, $posistion, $root, $module, $content, $description, $id) {
-        try {
-            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
-            $this->update($newRow, " id = " . $id);
-        } catch (Zend_Exception $e) {
-            Zend_Debug::dump($e);
-        }
-    }
+//    public function updateMenu1($name, $alias, $posistion, $root, $module, $content, $description, $id) {
+//        try {
+//            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
+//            $this->update($newRow, " id = " . $id);
+//        } catch (Zend_Exception $e) {
+//            Zend_Debug::dump($e);
+//        }
+//    }
+//
+//    public function addMenu($name, $alias, $posistion, $root, $module, $content, $description) {
+//        try {
+//            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
+//            $row = $this->createRow($newRow);
+//            $row->save();
+//        } catch (Zend_Exception $e) {
+//            Zend_Debug::dump($e);
+//        }
+//    }
 
-    public function addMenu($name, $alias, $posistion, $root, $module, $content, $description) {
-        try {
-            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
-            $row = $this->createRow($newRow);
-            $row->save();
-        } catch (Zend_Exception $e) {
-            Zend_Debug::dump($e);
-        }
-    }
-
-    public function getMenuById($id) {
-        try {
-            $idInt = (int) $id;
-            $row = $this->fetchRow("id = " . $idInt);
-            return $row->toArray();
-        } catch (Zend_Exception $ex) {
-            Zend_Debug::dump($ex);
-        }
-    }
-
-    public function deleteById($id) {
-        try {
-            $this->delete("id = " . $id);
-        } catch (Zend_Exception $ex) {
-            Zend_Debug::dump($ex);
-        }
-    }
+//    public function getMenuById($id) {
+//        try {
+//            $idInt = (int) $id;
+//            $row = $this->fetchRow("id = " . $idInt);
+//            return $row->toArray();
+//        } catch (Zend_Exception $ex) {
+//            Zend_Debug::dump($ex);
+//        }
+//    }
+//
+//    public function deleteById($id) {
+//        try {
+//            $this->delete("id = " . $id);
+//        } catch (Zend_Exception $ex) {
+//            Zend_Debug::dump($ex);
+//        }
+//    }
 
 }

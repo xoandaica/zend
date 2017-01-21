@@ -70,7 +70,8 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
             $module = $request->getPost("module", null);
             $content = $request->getPost("subcat", null);
             $description = $request->getPost("description", null);
-            $this->menuDAO->addMenu($name, $alias, $posistion, $root, $module, $content, $description);
+            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
+            $this->menuDAO->addMenu($newRow);
             $this->showMenu();
         } else if ($request->isGet()) {
             $request = $this->getRequest();
@@ -100,7 +101,8 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
                 $module = $request->getPost("module", null);
                 $content = $request->getPost("subcat", null);
                 $description = $request->getPost("description", null);
-                $this->menuDAO->updateMenu1($name, $alias, $posistion, $root, $module, $content, $description, $id);
+                $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
+                $this->menuDAO->updateMenu1($newRow);
                 $this->showMenu();
             } else if (array_key_exists('deleteMenu', $request->getPost())) {
                 $id = $request->getParam("id");

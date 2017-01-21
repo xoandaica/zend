@@ -1,18 +1,9 @@
+
 <?php
 
-class Application_Model_DbTable_Categories extends Zend_Db_Table_Abstract {
+class Application_Model_DbTable_Categories extends Custom_Database_AbstractCRUD {
 
     protected $_name = 'categories';
-
-    public function getById($id) {
-
-        $id = (int) $id;
-        $row = $this->fetchRow('id = ' . $id);
-        if (!$row) {
-            throw new Exception("Could not find row $id");
-        }
-        return $row->toArray();
-    }
 
     public function getAllRootCategories() {
         $row = $this->fetchAll('parent_category is null');

@@ -17,7 +17,7 @@
     <div class="col-md-12">
 
         <div class="" style="padding-bottom: 15px">
-            <a href="http://thoitrangfshop.com/vnadmin/product/cat_add?is_cat=1" class="btn btn-success btn-sm">
+            <a <?php echo 'href="' . $this->url(array('controller' => 'Category', 'action' => 'add', 'module' => "product")) . '"'; ?> class="btn btn-success btn-sm">
                 <i class="fa fa-plus"></i> Thêm
             </a>
         </div>
