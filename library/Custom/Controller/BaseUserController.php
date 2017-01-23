@@ -1,10 +1,17 @@
 <?php
 
-require_once 'Zend/Controller/Action.php';
+require_once 'Custom/Controller/BaseController.php';
 
-class Custom_Controller_BaseUserController extends Zend_Controller_Action {
+class Custom_Controller_BaseUserController extends Custom_Controller_BaseController {
 
     private $session;
+
+    public function init() {
+        parent::init();
+        $this->loadSession();
+//        $this->loadUserInfor();
+//        $this->loadMenuByRole();
+    }
 
     public function loadSession() {
         $session = new Zend_Session_Namespace("UserSession");

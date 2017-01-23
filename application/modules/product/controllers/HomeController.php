@@ -5,6 +5,8 @@ class Product_HomeController extends Zend_Controller_Action {
     public function init() {
         /* Initialize action controller here */
         $this->_helper->layout->setLayout('/admin/layout');
+        parent::loadUserInfor();
+        parent::loadMenuByRole();
     }
 
     public function indexAction() {

@@ -1,10 +1,10 @@
 <?php
 
-class Application_Model_DbTable_Menus extends Zend_Db_Table_Abstract {
+class Application_Model_DbTable_Menus extends Custom_Database_AbstractCRUD {
 
     protected $_name = 'menus';
 
-    public function getAllMenu($position) {
+    public function getMenusByPosition($position) {
         try {
             $select = $this->select()->where('position ="' . $position . '"')->order("order asc");
             $rows = $this->fetchAll($select)->toArray();
@@ -41,47 +41,10 @@ class Application_Model_DbTable_Menus extends Zend_Db_Table_Abstract {
     public function updateMenu($idMenu, $rootMenu, $order) {
         try {
             $arrayData = array('root_menu' => $rootMenu, "order" => $order);
-            $this->update($arrayData, " id =" . $idMenu);
+            $this->update($arrayData, $idMenu);
         } catch (Zend_Exception $e) {
             Zend_Debug::dump($e);
         }
     }
-
-//    public function updateMenu1($name, $alias, $posistion, $root, $module, $content, $description, $id) {
-//        try {
-//            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
-//            $this->update($newRow, " id = " . $id);
-//        } catch (Zend_Exception $e) {
-//            Zend_Debug::dump($e);
-//        }
-//    }
-//
-//    public function addMenu($name, $alias, $posistion, $root, $module, $content, $description) {
-//        try {
-//            $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
-//            $row = $this->createRow($newRow);
-//            $row->save();
-//        } catch (Zend_Exception $e) {
-//            Zend_Debug::dump($e);
-//        }
-//    }
-
-//    public function getMenuById($id) {
-//        try {
-//            $idInt = (int) $id;
-//            $row = $this->fetchRow("id = " . $idInt);
-//            return $row->toArray();
-//        } catch (Zend_Exception $ex) {
-//            Zend_Debug::dump($ex);
-//        }
-//    }
-//
-//    public function deleteById($id) {
-//        try {
-//            $this->delete("id = " . $id);
-//        } catch (Zend_Exception $ex) {
-//            Zend_Debug::dump($ex);
-//        }
-//    }
 
 }

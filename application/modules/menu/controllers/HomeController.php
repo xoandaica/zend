@@ -2,9 +2,6 @@
 
 class Menu_HomeController extends Custom_Controller_BaseUserController {
 
-    private $menuDAO;
-    private $moduleDAO;
-    // order position menu
     private $order;
 
     /**
@@ -13,11 +10,9 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
     public function init() {
         /* Initialize action controller here */
         $this->_helper->layout->setLayout('/admin/layout');
-        $this->loadSession();
-        $this->loadUserInfor();
-        $this->loadMenuByRole();
-        $this->menuDAO = new Application_Model_DbTable_Menus();
-        $this->moduleDAO = new Application_Model_DbTable_Modules();
+        parent::init();
+        parent::loadUserInfor();
+        parent::loadMenuByRole();
         $this->order = 0;
     }
 
@@ -34,7 +29,7 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
             'controller' => 'Home',
             'action' => 'edit'));
         $this->view->editController = $url;
-        $this->showMenu();
+        $this->show();
     }
 
     /**
@@ -46,13 +41,12 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
         $listMenu = $request->getPost("newMenu", null);
 //        $menuPosition = $request->getPost("menuPosition", null);
         $arrayMenu = json_decode($listMenu, true); //decode json to array
-
         foreach ($arrayMenu as $parentMenu) {
             // update rootMenu
             $this->menuDAO->updateMenu($parentMenu['id'], null, ++$this->order);
             $this->loop($parentMenu);
         }
-        $this->showMenu();
+        $this->show();
     }
 
     /**
@@ -71,12 +65,12 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
             $content = $request->getPost("subcat", null);
             $description = $request->getPost("description", null);
             $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
-            $this->menuDAO->addMenu($newRow);
-            $this->showMenu();
+            $this->menuDAO->create($newRow);
+            $this->show();
         } else if ($request->isGet()) {
             $request = $this->getRequest();
             $menuPosition = $request->getParam("menuPosition");
-            $this->view->listMenu = $this->menuDAO->getAllMenu($menuPosition);
+            $this->view->listMenu = $this->menuDAO->getMenusByPosition($menuPosition);
             $this->view->menuPosition = $menuPosition;
             $this->view->listModules = $this->moduleDAO->getAllModulesForMenus();
         }
@@ -102,20 +96,20 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
                 $content = $request->getPost("subcat", null);
                 $description = $request->getPost("description", null);
                 $newRow = array("name" => $name, "alias" => $alias, "root_menu" => $root, "module" => $module, "position" => $posistion, "content" => $content);
-                $this->menuDAO->updateMenu1($newRow);
-                $this->showMenu();
+                $this->menuDAO->update($newRow, $id);
+                $this->show();
             } else if (array_key_exists('deleteMenu', $request->getPost())) {
                 $id = $request->getParam("id");
-                $this->menuDAO->deleteById($id);
-                $this->showMenu();
+                $this->menuDAO->delete($id);
+                $this->show();
                 # Save-button was clicked
             }
         } else {
             $menuPosition = $request->getParam("menuPosition");
             $idMenu = $request->getParam("id");
-            $this->view->listMenu = $this->menuDAO->getAllMenu($menuPosition);
+            $this->view->listMenu = $this->menuDAO->getMenusByPosition($menuPosition);
             $this->view->menuPosition = $menuPosition;
-            $this->view->currentMenu = $this->menuDAO->getMenuById($idMenu);
+            $this->view->currentMenu = $this->menuDAO->get($idMenu);
             $this->view->listModules = $this->moduleDAO->getAllModulesForMenus();
         }
     }
@@ -134,10 +128,10 @@ class Menu_HomeController extends Custom_Controller_BaseUserController {
         }
     }
 
-    private function showMenu() {
+    private function show() {
         $request = $this->getRequest();
         $menuPosition = $request->getParam("menuPosition");
-        $this->view->listMenu = $this->menuDAO->getAllMenu($menuPosition);
+        $this->view->listMenu = $this->menuDAO->getMenusByPosition($menuPosition);
         $this->view->menuPosition = $menuPosition;
         $this->view->listModules = $this->moduleDAO->getAllModulesForMenus();
         $this->_helper->viewRenderer->renderBySpec('view', array('module' =>

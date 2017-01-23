@@ -13,9 +13,10 @@ class Custom_Database_AbstractCRUD extends Zend_Db_Table_Abstract {
         }
     }
 
-    public function update($id, $arrayData) {
+    public function update($arrayData, $id) {
         try {
-            parent::update($id, $arrayData);
+
+            parent::update($arrayData, "id = " . $id);
         } catch (Zend_Exception $ex) {
             Zend_Debug::dump($ex);
         }

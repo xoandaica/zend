@@ -5,7 +5,9 @@ class Administrator_LoginController extends Custom_Controller_BaseUserController
     public function init() {
         /* Initialize action controller here */
         $this->_helper->layout()->disableLayout();
-        $this->loadSession();
+        parent::init();
+//        parent::loadUserInfor();
+//        parent::loadMenuByRole();
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_DbTable_Users extends Zend_Db_Table_Abstract {
+class Application_Model_DbTable_Users extends Custom_Database_AbstractCRUD {
 
     protected $_name = 'users';
 
