@@ -65,24 +65,24 @@
                                         <option value="0">Lựa chọn</option>
                                         <?php
 
-                                        function viewMenu($arrayMenu) {
-                                            for ($i = 0; $i < sizeof($arrayMenu); $i++) {
-                                                echo '<option value=' . $arrayMenu[$i]->getDataId() . '">' . $arrayMenu[$i]->getCurrentMenu() . '</option>';
+                                        function viewCategory($arrayCategory) {
+                                            for ($i = 0; $i < sizeof($arrayCategory); $i++) {
+                                                echo '<option value=' . $arrayCategory[$i]->getDataId() . '">' . $arrayCategory[$i]->getCurrentCategory() . '</option>';
                                                 $_COUNT = 0;
-                                                loopChildMenu($arrayMenu[$i], $_COUNT);
+                                                loopChildCategory($arrayCategory[$i], $_COUNT);
                                             }
                                         }
 
-                                        function loopChildMenu($menu, $_COUNT) {
+                                        function loopChildCategory($menu, $_COUNT) {
                                             // $_COUNT use to reset index root menu
                                             STATIC $_count = 0;
                                             if ($_COUNT == 0) {
                                                 $_count = $_COUNT;
                                             }
-                                            if (sizeof($menu->getArrayChildMenu()) > 0) {
-                                                for ($i1 = 0; $i1 < sizeof($menu->getArrayChildMenu()); $i1 ++) {
-                                                    echo '<option value=' . $menu->getArrayChildMenu()[$i1]->getDataId() . '">' . expression($_count) . '-' . $menu->getArrayChildMenu()[$i1]->getCurrentMenu() . '</option>';
-                                                    loopChildMenu($menu->getArrayChildMenu()[$i1], ++$_count);
+                                            if (sizeof($menu->getArrayChildCategory()) > 0) {
+                                                for ($i1 = 0; $i1 < sizeof($menu->getArrayChildCategory()); $i1 ++) {
+                                                    echo '<option value=' . $menu->getArrayChildCategory()[$i1]->getDataId() . '">' . expression($_count) . '-' . $menu->getArrayChildCategory()[$i1]->getCurrentCategory() . '</option>';
+                                                    loopChildCategory($menu->getArrayChildCategory()[$i1], ++$_count);
                                                 }
                                             } else {
                                                 --$_count;
@@ -102,15 +102,9 @@
                                             return $express;
                                         }
 
-                                        viewMenu($this->listCategory);
+                                        viewCategory($this->listCategory);
                                         ?>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-12 ">Thứ tự:</label>
-                                <div class="col-lg-2">
-                                    <input type="number" name="sort" class="form-control input-sm" value="8">
                                 </div>
                             </div>
                             <div class="form-group">

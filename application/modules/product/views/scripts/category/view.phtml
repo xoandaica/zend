@@ -1,3 +1,39 @@
+<script>
+    $(document).ready(function ()
+    {
+        var updateOutput = function (e)
+        {
+            var list = e.length ? e : $(e.target),
+                    output = list.data('output');
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+
+        // activate Nestable for list 1
+        $('#nestable').nestable({
+            group: 1
+        })
+                .on('change', updateOutput);
+
+        // output initial serialised data
+        updateOutput($('#nestable').data('output', $('#nestable-output')));
+
+        $('#nestable-menu').on('click', function (e)
+        {
+            var target = $(e.target),
+                    action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });
+    });
+</script> 
 <div class="row">
     <div class="col-lg-12">
         <ol class="breadcrumb">
@@ -14,110 +50,54 @@
             <li class="pull-right images_lang">
                 <img src="http://thoitrangfshop.com/img/vn.jpg" alt="Images Language" style="max-width: 30px"> </li>                </ol>
     </div>
-    <div class="col-md-12">
 
-        <div class="" style="padding-bottom: 15px">
-            <a <?php echo 'href="' . $this->url(array('controller' => 'Category', 'action' => 'add', 'module' => "product")) . '"'; ?> class="btn btn-success btn-sm">
-                <i class="fa fa-plus"></i> Thêm
-            </a>
-        </div>
+</div>
+<div class="row">
+    <div class="col-sm-2" >
+        <?php echo '<form action="' . $this->url(array('controller' => 'Category', 'action' => 'add', 'module' => "product")) . '" method="get">' ?>
+        <button class="btn btn-primary" name="Thêm" value="Thêm" id="btnAddMenu">Thêm Danh mục</button>
 
-        <div class=" ">
-            <table class="table table-striped table-bordered">
-                <tbody><tr>
-                        <th width="7%">Sắp xếp</th>
-                        <th>Tên</th>
-                        <th width="20%">Ảnh</th>
-                        <th class="hidden" width="6%">Màu Nền</th>
-                        <th class="" width="8%">Hiển thị</th>
-                        <th width="8%" class="text-center">Action</th>
-                    </tr>
+        </form>
 
-                    <tr>
-                        <td>
-                            <input type="number" value="1" data-item="25" onchange="cat_sort($(this))" style="width: 45px; padding: 2px;border:1px solid #ddd">
-                        </td>
-                        <td>Quần Jean</td>
-                        <td><img src="http://thoitrangfshop.com/upload/img/ada0b05df6b78db9a1da5067cf3ce05e.png" style="height:40px; max-width:100px"> </td>
+    </div>
+    <div class="col-lg-2">
+        <?php echo '<form action="' . $this->url(array('controller' => 'Category', 'action' => 'save', 'module' => "product")) . '" method="post">' ?>
+        <button class="btn btn-primary" name ="Thêm" value="Thêm" id="btnSaveMenu">Lưu danh mục</button>
+        <input type="hidden" value="nestable-output" id="nestable-output" name="newcategory"/>   
+        <input type="hidden"  name="menuPosition" <?php echo 'value="' . $this->menuPosition . '"' ?> />   
+        </form>
+    </div>
 
-                        <td class="text-center">
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="25" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px; background:#000088" data-original-title="Tab danh mục"></div>
+</div>
+<div class="row top_space">
+    <div class="cf nestable-lists">
+        <div class="dd" id="nestable">
+            <ol class="dd-list">
+                <?php
 
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="25" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;background:#008855 " data-original-title="Hiển thị sản phẩm ra trang chủ"></div>
+                function viewMenu($arrayMenu, $controller) {
+                    for ($i = 0; $i < sizeof($arrayMenu); $i++) {
+                        loopChildMenu($arrayMenu[$i], $controller);
+                    }
+                }
 
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="25" data-view="hot" class="view_color hidden" style="border: 1px solid #EE1700;margin-right: 10px;background:#EE1700 " data-original-title="Hiển thị trang chủ (sim)"></div>
+                function loopChildMenu($menu, $controller) {
+                    echo '<li class="dd-item dd3-item"  data-id="' . $menu->getDataId() . '"  >';
+                    echo '<div class="dd-handle dd3-handle">Drag</div>';
+                    echo '<div class="dd3-content" onclick="location.href=\'' . $controller . '/id/' . $menu->getDataId() . '\'">' . $menu->getCurrentCategory() . '</div>';
+                    if (sizeof($menu->getArrayChildCategory()) > 0) {
+                        echo ' <ol class="dd-list">';
+                        for ($i1 = 0; $i1 < sizeof($menu->getArrayChildCategory()); $i1 ++) {
+                            loopChildMenu($menu->getArrayChildCategory()[$i1], $controller);
+                        }
+                        echo '</ol>';
+                    }
+                    echo '</li>';
+                }
 
-                        </td>
-
-
-                        <td class="text-center">
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_edit/25?is_cat=1" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_delete/25" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
-                        </td>
-                    </tr><tr>
-                        <td>
-                            <input type="number" value="2" data-item="26" onchange="cat_sort($(this))" style="width: 45px; padding: 2px;border:1px solid #ddd">
-                        </td>
-                        <td>Váy &amp; Áo</td>
-                        <td><img src="http://thoitrangfshop.com/upload/img/31aa8e4ccf05c88bbaf9f081f79b60b9.png" style="height:40px; max-width:100px"> </td>
-
-                        <td class="text-center">
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="26" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px; background:#000088" data-original-title="Tab danh mục"></div>
-
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="26" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;background:#008855 " data-original-title="Hiển thị sản phẩm ra trang chủ"></div>
-
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="26" data-view="hot" class="view_color hidden" style="border: 1px solid #EE1700;margin-right: 10px;background:#EE1700 " data-original-title="Hiển thị trang chủ (sim)"></div>
-
-                        </td>
-
-
-                        <td class="text-center">
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_edit/26?is_cat=1" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_delete/26" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
-                        </td>
-                    </tr><tr>
-                        <td>
-                            <input type="number" value="3" data-item="1" onchange="cat_sort($(this))" style="width: 45px; padding: 2px;border:1px solid #ddd">
-                        </td>
-                        <td>Quần áo trẻ em</td>
-                        <td><img src="http://thoitrangfshop.com/upload/img/a213afb75197f3ee60064bb3934e4ead.png" style="height:40px; max-width:100px"> </td>
-
-                        <td class="text-center">
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="1" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px; background:#000088" data-original-title="Tab danh mục"></div>
-
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="1" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;background:#008855 " data-original-title="Hiển thị sản phẩm ra trang chủ"></div>
-
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="1" data-view="hot" class="view_color hidden" style="border: 1px solid #EE1700;margin-right: 10px;background:#EE1700 " data-original-title="Hiển thị trang chủ (sim)"></div>
-
-                        </td>
-
-
-                        <td class="text-center">
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_edit/1?is_cat=1" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_delete/1" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
-                        </td>
-                    </tr><tr>
-                        <td>
-                            <input type="number" value="4" data-item="2" onchange="cat_sort($(this))" style="width: 45px; padding: 2px;border:1px solid #ddd">
-                        </td>
-                        <td>Áo sơ mi</td>
-                        <td><img src="http://thoitrangfshop.com/upload/img/454bc01d37334cf1757bf3e884ac2d8e.png" style="height:40px; max-width:100px"> </td>
-
-                        <td class="text-center">
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="2" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px; background:#000088" data-original-title="Tab danh mục"></div>
-
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="2" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px; " data-original-title="Hiển thị sản phẩm ra trang chủ"></div>
-
-                            <div data-toggle="tooltip" data-placement="top" title="" data-value="2" data-view="hot" class="view_color hidden" style="border: 1px solid #EE1700;margin-right: 10px;background:#EE1700 " data-original-title="Hiển thị trang chủ (sim)"></div>
-
-                        </td>
-
-
-                        <td class="text-center">
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_edit/2?is_cat=1" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
-                            <a href="http://thoitrangfshop.com/vnadmin/product/cat_delete/2" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
-                        </td>
-                    </tr>                                            </tbody></table>
+                viewMenu($this->listCategory, $this->url(array('controller' => 'Category', 'action' => 'edit', 'module' => "product"), null, true));
+                ?>
+            </ol>
         </div>
     </div>
 </div>

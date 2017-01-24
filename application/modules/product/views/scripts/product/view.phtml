@@ -1,0 +1,976 @@
+<div class="row">
+    <div class="">
+
+        <ol class="breadcrumb">
+            <li>
+                <a href="http://nhamaygda.com/vnadmin">Admin</a>
+            </li>
+            <li>
+                <a href="http://nhamaygda.com/vnadmin/product/products">
+                    Danh sách file
+                </a>
+            </li>
+            <li>
+                <a onclick="history.back()" style="cursor: pointer"><i class="fa fa-reply"></i></a>
+            </li>
+        </ol>
+    </div>
+    <div class="col-md-12">
+        <div class="row" style="padding-bottom: 15px">
+
+            <div class="col-md-2" style="padding-bottom: 10px">
+                <a <?php echo 'href="' . $this->url(array('controller' => 'Product', 'action' => 'add', 'module' => "product")) . '"' ?> class="btn btn-success btn-sm">
+                    <i class="fa fa-plus"></i> Thêm
+                </a>
+
+                <!--<a href="" class="btn btn-success btn-sm">
+                    <i class="fa fa-plus"></i> Bán hàng
+                </a>-->
+            </div>
+
+            <div class="col-sm-12">
+                <form action="" method="get">
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <input name="code" type="search" value="" placeholder="Mã ..." class="form-control input-sm">
+                        </div>
+                        <div class="col-sm-2">
+                            <input name="name" type="search" value="" placeholder="Tên sản phẩm..." class="form-control input-sm">
+                        </div>
+                        <div class="col-sm-2">
+                            <select name="cate" class="input-sm form-control">
+                                <option value="">Danh mục</option>
+                                <option value="dam">Đầm</option><option value="so-mi">Sơ mi</option><option value="quan">Quần</option><option value="juyp">Juyp</option><option value="vest">Vest</option><option value="mang-to">Măng tô</option><option value="san-pham-khac">Sản phẩm khác</option>                    </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <select name="view" class="input-sm form-control">
+                                <option value="">Hiển thị</option>
+                                <option value="home">Trang chủ</option>
+                                <option value="coupon">Sản phẩm bán chạy</option>
+                                <option value="focus">Sản phẩm nổi bật</option>
+                                <option value="hot">Sản phẩm mới</option>
+                            </select>
+
+                        </div>
+                        <div class="col-sm-2  ">
+                            <!--<select name="lang" class="input-sm form-control" >
+        
+                                                <option value="">Ngôn ngữ</option>
+                                                
+                                            </select>-->
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btn-sm btn-default">
+                                <i class="fa fa-search"></i>  Tìm kiếm
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-md-6 text-right">
+
+                <script>
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                    })
+                </script>
+                <style>
+                    .view_color{width: 10px; height: 10px;float: left;margin-top: 5px;cursor: pointer}
+                </style>
+
+            </div>
+        </div>
+        <div class="">
+            <div class="clear"></div>
+            <table class="table  table-hover table-bordered">
+                <thead>
+                    <tr class="active">
+                        <th width="2%">#</th>
+                        <th width="8%">Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th width="18%">Danh mục</th>
+                        <!--<th width="8%">Số lượng</th>-->
+                        <!--<th width="7%">Hiển thị</th>-->
+                        <th width="10%">Hiển thị</th>
+                        <!--<th width="7%">Bảng giá</th>-->
+                        <th width="10%">Action</th>
+                    </tr>
+                </thead>
+                <tbody><tr>
+                        <td>1</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/31122016/thumbnail_3_420b053efcbb9a48869422d90b81dce2.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            san pham moi 6                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="443" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="443" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="443" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="443" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/443" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/443" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/443" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/31122016/thumbnail_3_b98d3434c51dfc4b7633e3a1fd656050.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            san pham moi 5                    </td>
+                        <td>Măng tô</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="442" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="442" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="442" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="442" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/442" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/442" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/442" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/22122016/thumbnail_3_d4ef0f12a04adb701a6792a879c05964.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sản Phẩm Mới(4)                    </td>
+                        <td>Măng tô</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="441" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="441" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="441" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="441" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/441" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/441" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/441" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/22122016/thumbnail_3_762e943af6d1e91d5435b8de51ca2840.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sản Phẩm Mới(3)                    </td>
+                        <td>Vest</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="440" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="440" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="440" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="440" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/440" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/440" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/440" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/22122016/thumbnail_3_94ee43d6ff2c6266ddea43e3253d12c6.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sản Phẩm Mới(2)                    </td>
+                        <td>Măng tô</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="439" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="439" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="439" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="439" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/439" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/439" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/439" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/22122016/thumbnail_3_55a7080576f18ea8c2cb3db1aed7f16f.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sản Phẩm Mới(1)                    </td>
+                        <td>Măng tô</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="438" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="438" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="438" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="438" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/438" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/438" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/438" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/22122016/thumbnail_3_16f94796ef61659f965346e74e58a2da.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sản Phẩm Mới                    </td>
+                        <td>Măng tô</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="437" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="437" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="437" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="437" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/437" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/437" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/437" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_a97ee92e568d248a03b457c2d148305d.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Vest công sở 51116                    </td>
+                        <td>Vest</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="435" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="435" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;background:#ff0000" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="435" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="435" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/435" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/435" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/435" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_e4937d22a5ab2f90a4dd99f799b2fb1c.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Vest công sở 51140                    </td>
+                        <td>Vest</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="434" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="434" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="434" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="434" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/434" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/434" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/434" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_db7ce88077c88758655675aaef554c6b.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Vest công sở 51111                    </td>
+                        <td>Vest</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="433" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="433" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="433" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="433" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/433" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/433" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/433" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_1c5356ced76dcf1cdb4eb7173352b0fc.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sơ Mi Công Sở 2696                    </td>
+                        <td>Sơ mi</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="432" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="432" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="432" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="432" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/432" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/432" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/432" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_02cc2f9dd37c25f976af10e7ae6c4c0e.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sơ Mi Công Sở 2999                    </td>
+                        <td>Sơ mi</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="431" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="431" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="431" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="431" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/431" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/431" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/431" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_9cd13f171bf47e3b3f8729f02f7c3d4a.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Đầm Công sở 11577(3)                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="430" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="430" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="430" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="430" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/430" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/430" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/430" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_b83982fa12c63d17edd6dbf7c73719d1.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Đầm Công sở 11577(2)                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="429" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="429" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="429" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="429" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/429" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/429" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/429" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_57d309e8ddfb6ad6c07de528475e64e2.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Đầm Công sở 11577(1)                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="428" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="428" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="428" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="428" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/428" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/428" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/428" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/20122016/thumbnail_3_0733d480064e23ec4a9ad83b2868bab9.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Đầm Công sở 11577                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="427" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="427" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="427" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="427" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/427" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/427" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/427" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/14122016/thumbnail_3_435159e4204df5a210e0ac1973663af2.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Sơ Mi Công Sở 21862                    </td>
+                        <td>Sơ mi</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="426" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="426" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="426" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="426" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/426" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/426" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/426" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/14122016/thumbnail_3_58cfabf91a9a2ed91631483d6103ba91.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Váy Liền công sở mẫu                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="425" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="425" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="425" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="425" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/425" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/425" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/425" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/14122016/thumbnail_3_37e3a76a069e99d0714f35be77f7c372.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Váy Liền Công Sở 11928                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="424" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="424" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="424" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="424" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/424" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/424" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/424" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>
+                            <img src="http://nhamaygda.com/upload/img/products/14122016/thumbnail_3_ee37876faa84877eb56d9a0efd09f254.jpg" style="width: 65px; height: 30px">
+                        </td>
+                        <td>
+                            Váy Liền Công Sở 11835(1)                    </td>
+                        <td>Đầm</td>
+                        <!--<td>
+                                                                                    <a href="#" class="pull-right" onclick="get_product_data($(this))"
+                                                  data-item=""
+                                               data-toggle="modal" data-target="#modalAnimated"
+    
+                                                ><i class="fa fa-plus"></i></a>
+                                        </td>-->
+
+                        <td>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="423" data-view="home" class="view_color" style="border: 1px solid #000088;margin-right: 10px;background:#000088" data-original-title="Trang chủ"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="423" data-view="hot" class="view_color" style="border: 1px solid #ff0000;margin-right: 10px;" data-original-title="Sản phẩm mới"></div>
+
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="423" data-view="focus" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm nổi bật"></div>
+                            <div data-toggle="tooltip" data-placement="top" title="" data-value="423" data-view="coupon" class="view_color" style="border: 1px solid #008855;margin-right: 10px;" data-original-title="Sản phẩm bán chạy"></div>
+
+                        </td>
+                        <!--<td>
+                            <div onclick="getModalPrice()" class="btn btn-xs btn-success">Cập nhật</div>
+                        </td>-->
+                        <td>
+                            <div style="text-align: center; " class="action">
+
+                                <a href="http://nhamaygda.com/vnadmin/product/edit/423" class="btn btn-xs btn-default" title="Sửa"><i class="fa fa-pencil"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/images/423" class="btn btn-xs btn-default" title="Ảnh sản phẩm"><i class="fa fa-image"></i></a>
+
+                                <a href="http://nhamaygda.com/vnadmin/product/delete/423" class="btn btn-xs btn-danger" title="Xóa" style="color: #fff"><i class="fa fa-times"></i> </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            <script>
+                function send_content(id) {
+                    var baseurl = $("#baseurl").val();
+                    var form_data = {
+                        id: id
+                    };
+                    $.ajax({
+                        url: baseurl + "admin/product/getrow",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: form_data,
+                        success: function (rs) {
+                            send_posst(rs);
+                        }
+                    });
+                }
+
+                function send_posst(data) {
+                    var baseurl = $("#baseurl").val();
+                    var form_data = {
+                        name: data.name,
+                        addnews: '1'
+                    };
+                    $.ajax({
+                        url: baseurl + "admin/product/addpro",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: form_data,
+                        success: function (rs) {
+
+                        }
+                    });
+                }
+
+                $('.view_color').click(function () {
+                    var color = $(this).css("border-color");
+                    var background = $(this).css("background-color");
+
+                    var baseurl = $("#baseurl").val();
+                    var form_data = {
+                        id: $(this).attr('data-value'), view: $(this).attr('data-view')
+                    };
+                    $.ajax({
+                        url: baseurl + "admin/product/update_view",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: form_data,
+                        success: function (rs) {
+
+                        }
+                    });
+                    if (color != background) {
+                        $(this).css("background-color", color);
+                    } else {
+                        $(this).css("background-color", '#fff');
+                    }
+                })/*.hover(function(){
+                 var color = $( this ).css( "border-color" );
+                 var background = $( this ).css( "background-color" );
+                 
+                 
+                 if(color!=background){
+                 $( this ).css( "background-color",color ) ;
+                 }else{
+                 $( this ).css( "background-color",'#fff' ) ;
+                 }
+                 })*/
+            </script>
+        </div>
+        <div class="pagination  ">
+            <ul class="pagination pagination-sm"><li class="disabled"></li><li class="active"><a href="#">1<span class="sr-only"></span></a></li><li><a href="http://nhamaygda.com/vnadmin/product/products/20">2</a></li><li><a href="http://nhamaygda.com/vnadmin/product/products/40">3</a></li><li><a href="http://nhamaygda.com/vnadmin/product/products/20">&gt;</a>&nbsp;</li><li><a href="http://nhamaygda.com/vnadmin/product/products/60">Last ›</a></li></ul></div>
+    </div>
+</div>

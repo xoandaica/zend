@@ -16,34 +16,43 @@ class Application_Model_DbTable_Categories extends Custom_Database_AbstractCRUD 
     public function getCategories() {
         try {
             $rows = $this->fetchAll()->toArray();
-            $arrayMenu = [];
+            $arrayCategory = [];
             foreach ($rows as $element) {
                 if ($element['parent_category'] === null) {
-                    $menu = new Menu_Model_Menu();
+                    $menu = new Product_Model_Category();
                     $menu->setDataId($element['id']);
-                    $menu->setCurrentMenu($element['name']);
-                    $menu->setArrayChildMenu($this->loopChild($element, $rows));
-                    array_push($arrayMenu, $menu);
+                    $menu->setCurrentCategory($element['name']);
+                    $menu->setArrayChildCategory($this->loopChild($element, $rows));
+                    array_push($arrayCategory, $menu);
                 }
             }
-            return $arrayMenu;
+            return $arrayCategory;
         } catch (Zend_Exception $e) {
             Zend_Debug::dump($e);
         }
     }
 
     public function loopChild($tmp, $rows) {
-        $arrayChildMenu = [];
+        $arrayChildCategory = [];
         foreach ($rows as $element) {
             if ($element['parent_category'] != null && $element['parent_category'] == $tmp['id']) {
-                $menu = new Menu_Model_Menu();
+                $menu = new Product_Model_Category();
                 $menu->setDataId($element['id']);
-                $menu->setCurrentMenu($element['name']);
-                $menu->setArrayChildMenu($this->loopChild($element, $rows));
-                array_push($arrayChildMenu, $menu);
+                $menu->setCurrentCategory($element['name']);
+                $menu->setArrayChildCategory($this->loopChild($element, $rows));
+                array_push($arrayChildCategory, $menu);
             }
         }
-        return $arrayChildMenu;
+        return $arrayChildCategory;
+    }
+
+    public function updateCategory($idCategory, $rootCategory, $order) {
+        try {
+            $arrayData = array('parent_category' => $rootCategory, "order" => $order);
+            $this->update($arrayData, $idCategory);
+        } catch (Zend_Exception $e) {
+            Zend_Debug::dump($e);
+        }
     }
 
 }

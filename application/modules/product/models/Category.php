@@ -4,26 +4,26 @@ class Product_Model_Category {
 
     // 
     private $dataId;
-    private $currentMenu;
-    private $arrayChildMenu;
+    private $currentCategory;
+    private $arrayChildCategory;
 
     // for view in view.html
 
 
-    function getCurrentMenu() {
-        return $this->currentMenu;
+    function getCurrentCategory() {
+        return $this->currentCategory;
     }
 
-    function getArrayChildMenu() {
-        return $this->arrayChildMenu;
+    function getArrayChildCategory() {
+        return $this->arrayChildCategory;
     }
 
-    function setCurrentMenu($currentMenu) {
-        $this->currentMenu = $currentMenu;
+    function setCurrentCategory($currentCategory) {
+        $this->currentCategory = $currentCategory;
     }
 
-    function setArrayChildMenu($arrayChildMenu) {
-        $this->arrayChildMenu = $arrayChildMenu;
+    function setArrayChildCategory($arrayChildCategory) {
+        $this->arrayChildCategory = $arrayChildCategory;
     }
 
     function getDataId() {
